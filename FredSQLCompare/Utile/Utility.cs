@@ -62,5 +62,19 @@ namespace FredSQLCompare.Utile
       };
       return result;
     }
+
+    public static Dictionary<string, string> GetAuthenticationTypes()
+    {
+      var result = new Dictionary<string, string>
+      {
+        { "WindowsAuthenticationOnPrem", "Windows Authentication (On-Prem)" },
+        { "SQLServerAuthentication", "SQL Server Authentication" },
+        { "ActiveDirectoryIntegratedAuthenticationAzure", "Active Directory Integrated Authentication Azure" },
+        { "ActiveDirectoryInteractiveAuthenticationAzure", "Active Directory Interactive Authentication Azure" },
+        { "ActiveDirectoryPasswordAuthenticationAzure", "Active Directory Password Authentication Azure" }
+      };
+
+      return result;
+    }
   }
 }

@@ -17,10 +17,10 @@
 
     public DatabaseAuthentication()
     {
-      DatabaseName = "";
-      ServerName = "";
-      UserName = "";
-      UserPassword = "";
+      DatabaseName = string.Empty;
+      ServerName = string.Empty;
+      UserName = string.Empty;
+      UserPassword = string.Empty;
     }
 
     public override string ToString()

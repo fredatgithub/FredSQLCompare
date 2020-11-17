@@ -64,5 +64,14 @@
       Like,
       NotLike
     }
+
+    public enum AuthenticationTypes
+    {
+      WindowsAuthenticationOnPrem,
+      SQLServerAuthentication,
+      ActiveDirectoryIntegratedAuthenticationAzure,
+      ActiveDirectoryInteractiveAuthenticationAzure,
+      ActiveDirectoryPasswordAuthenticationAzure
+    }
   }
 }

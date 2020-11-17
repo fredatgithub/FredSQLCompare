@@ -457,7 +457,7 @@ namespace FredSQLCompare
       this.buttonDeploy.Name = "buttonDeploy";
       this.buttonDeploy.Size = new System.Drawing.Size(99, 73);
       this.buttonDeploy.TabIndex = 2;
-      this.buttonDeploy.Text = "Deploy";
+      this.buttonDeploy.Text = "Deploy -->";
       this.buttonDeploy.UseVisualStyleBackColor = false;
       this.buttonDeploy.Click += new System.EventHandler(this.ButtonDeploy_Click);
       // 
