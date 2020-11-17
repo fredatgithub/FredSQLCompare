@@ -61,14 +61,17 @@ namespace FredSQLCompare
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.generateComparisonResultsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.projectOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.applicationOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.includeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.excludeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.generateComparisonResultsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.projectOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.applicationOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.switchDeploymentDirectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.filterSetupPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.deploymentWizardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -317,10 +320,36 @@ namespace FredSQLCompare
             this.includeAllToolStripMenuItem,
             this.excludeAllToolStripMenuItem,
             this.toolStripSeparator6,
-            this.refreshToolStripMenuItem});
+            this.refreshToolStripMenuItem,
+            this.switchDeploymentDirectionToolStripMenuItem,
+            this.filterSetupPaneToolStripMenuItem,
+            this.deploymentWizardToolStripMenuItem});
       this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
       this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
       this.actionsToolStripMenuItem.Text = "Actions";
+      // 
+      // includeAllToolStripMenuItem
+      // 
+      this.includeAllToolStripMenuItem.Name = "includeAllToolStripMenuItem";
+      this.includeAllToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.includeAllToolStripMenuItem.Text = "Include all";
+      // 
+      // excludeAllToolStripMenuItem
+      // 
+      this.excludeAllToolStripMenuItem.Name = "excludeAllToolStripMenuItem";
+      this.excludeAllToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.excludeAllToolStripMenuItem.Text = "Exclude all";
+      // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      this.toolStripSeparator6.Size = new System.Drawing.Size(283, 6);
+      // 
+      // refreshToolStripMenuItem
+      // 
+      this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.refreshToolStripMenuItem.Text = "Refresh comparison";
       // 
       // toolsToolStripMenuItem
       // 
@@ -350,28 +379,23 @@ namespace FredSQLCompare
       this.applicationOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
       this.applicationOptionsToolStripMenuItem.Text = "Application options";
       // 
-      // includeAllToolStripMenuItem
+      // switchDeploymentDirectionToolStripMenuItem
       // 
-      this.includeAllToolStripMenuItem.Name = "includeAllToolStripMenuItem";
-      this.includeAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.includeAllToolStripMenuItem.Text = "Include all";
+      this.switchDeploymentDirectionToolStripMenuItem.Name = "switchDeploymentDirectionToolStripMenuItem";
+      this.switchDeploymentDirectionToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.switchDeploymentDirectionToolStripMenuItem.Text = "Switch Deployment Direction";
       // 
-      // excludeAllToolStripMenuItem
+      // filterSetupPaneToolStripMenuItem
       // 
-      this.excludeAllToolStripMenuItem.Name = "excludeAllToolStripMenuItem";
-      this.excludeAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.excludeAllToolStripMenuItem.Text = "Exclude all";
+      this.filterSetupPaneToolStripMenuItem.Name = "filterSetupPaneToolStripMenuItem";
+      this.filterSetupPaneToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.filterSetupPaneToolStripMenuItem.Text = "Filter Setup Pane";
       // 
-      // toolStripSeparator6
+      // deploymentWizardToolStripMenuItem
       // 
-      this.toolStripSeparator6.Name = "toolStripSeparator6";
-      this.toolStripSeparator6.Size = new System.Drawing.Size(221, 6);
-      // 
-      // refreshToolStripMenuItem
-      // 
-      this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-      this.refreshToolStripMenuItem.Text = "Refresh comparison";
+      this.deploymentWizardToolStripMenuItem.Name = "deploymentWizardToolStripMenuItem";
+      this.deploymentWizardToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.deploymentWizardToolStripMenuItem.Text = "Deployment Wizard";
       // 
       // FormMain
       // 
@@ -431,6 +455,9 @@ namespace FredSQLCompare
     private System.Windows.Forms.ToolStripMenuItem generateComparisonResultsReportToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem projectOptionsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem applicationOptionsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem switchDeploymentDirectionToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem filterSetupPaneToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem deploymentWizardToolStripMenuItem;
   }
 }
 
