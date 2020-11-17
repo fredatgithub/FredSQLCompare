@@ -22,9 +22,19 @@ namespace FredSQLCompare
 
     }
 
-    private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+    private void QuitterToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Application.Exit();
+    }
+
+    private void TableLayoutPanelMain_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
+
+    private void ButtonDeploy_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }

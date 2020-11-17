@@ -65,14 +65,20 @@ namespace FredSQLCompare
       this.excludeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.switchDeploymentDirectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.filterSetupPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.deploymentWizardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.generateComparisonResultsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.projectOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.applicationOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.switchDeploymentDirectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.filterSetupPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.deploymentWizardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
+      this.labelSourceServerName = new System.Windows.Forms.Label();
+      this.labelTargetServerName = new System.Windows.Forms.Label();
+      this.buttonDeploy = new System.Windows.Forms.Button();
+      this.listViewMainDeployment = new System.Windows.Forms.ListView();
       this.menuStrip1.SuspendLayout();
+      this.tableLayoutPanelMain.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -87,7 +93,7 @@ namespace FredSQLCompare
             this.toolsToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+      this.menuStrip1.Size = new System.Drawing.Size(1269, 30);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -178,7 +184,7 @@ namespace FredSQLCompare
       this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
       this.quitterToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
       this.quitterToolStripMenuItem.Text = "&Quitter";
-      this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
+      this.quitterToolStripMenuItem.Click += new System.EventHandler(this.QuitterToolStripMenuItem_Click);
       // 
       // editionToolStripMenuItem
       // 
@@ -351,6 +357,24 @@ namespace FredSQLCompare
       this.refreshToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
       this.refreshToolStripMenuItem.Text = "Refresh comparison";
       // 
+      // switchDeploymentDirectionToolStripMenuItem
+      // 
+      this.switchDeploymentDirectionToolStripMenuItem.Name = "switchDeploymentDirectionToolStripMenuItem";
+      this.switchDeploymentDirectionToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.switchDeploymentDirectionToolStripMenuItem.Text = "Switch Deployment Direction";
+      // 
+      // filterSetupPaneToolStripMenuItem
+      // 
+      this.filterSetupPaneToolStripMenuItem.Name = "filterSetupPaneToolStripMenuItem";
+      this.filterSetupPaneToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.filterSetupPaneToolStripMenuItem.Text = "Filter Setup Pane";
+      // 
+      // deploymentWizardToolStripMenuItem
+      // 
+      this.deploymentWizardToolStripMenuItem.Name = "deploymentWizardToolStripMenuItem";
+      this.deploymentWizardToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.deploymentWizardToolStripMenuItem.Text = "Deployment Wizard";
+      // 
       // toolsToolStripMenuItem
       // 
       this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -379,29 +403,81 @@ namespace FredSQLCompare
       this.applicationOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
       this.applicationOptionsToolStripMenuItem.Text = "Application options";
       // 
-      // switchDeploymentDirectionToolStripMenuItem
+      // tableLayoutPanelMain
       // 
-      this.switchDeploymentDirectionToolStripMenuItem.Name = "switchDeploymentDirectionToolStripMenuItem";
-      this.switchDeploymentDirectionToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
-      this.switchDeploymentDirectionToolStripMenuItem.Text = "Switch Deployment Direction";
+      this.tableLayoutPanelMain.ColumnCount = 3;
+      this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.46334F));
+      this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.53666F));
+      this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 628F));
+      this.tableLayoutPanelMain.Controls.Add(this.labelSourceServerName, 0, 0);
+      this.tableLayoutPanelMain.Controls.Add(this.labelTargetServerName, 2, 0);
+      this.tableLayoutPanelMain.Controls.Add(this.buttonDeploy, 1, 0);
+      this.tableLayoutPanelMain.Controls.Add(this.listViewMainDeployment, 0, 1);
+      this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 30);
+      this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
+      this.tableLayoutPanelMain.RowCount = 4;
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.36717F));
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.63283F));
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanelMain.Size = new System.Drawing.Size(1269, 632);
+      this.tableLayoutPanelMain.TabIndex = 1;
+      this.tableLayoutPanelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanelMain_Paint);
       // 
-      // filterSetupPaneToolStripMenuItem
+      // labelSourceServerName
       // 
-      this.filterSetupPaneToolStripMenuItem.Name = "filterSetupPaneToolStripMenuItem";
-      this.filterSetupPaneToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
-      this.filterSetupPaneToolStripMenuItem.Text = "Filter Setup Pane";
+      this.labelSourceServerName.AutoSize = true;
+      this.labelSourceServerName.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.labelSourceServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelSourceServerName.Location = new System.Drawing.Point(3, 0);
+      this.labelSourceServerName.Name = "labelSourceServerName";
+      this.labelSourceServerName.Size = new System.Drawing.Size(529, 79);
+      this.labelSourceServerName.TabIndex = 0;
+      this.labelSourceServerName.Text = "Server Source name and SQL instance";
       // 
-      // deploymentWizardToolStripMenuItem
+      // labelTargetServerName
       // 
-      this.deploymentWizardToolStripMenuItem.Name = "deploymentWizardToolStripMenuItem";
-      this.deploymentWizardToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
-      this.deploymentWizardToolStripMenuItem.Text = "Deployment Wizard";
+      this.labelTargetServerName.AutoSize = true;
+      this.labelTargetServerName.BackColor = System.Drawing.SystemColors.ActiveCaption;
+      this.labelTargetServerName.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.labelTargetServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelTargetServerName.Location = new System.Drawing.Point(643, 0);
+      this.labelTargetServerName.Name = "labelTargetServerName";
+      this.labelTargetServerName.Size = new System.Drawing.Size(623, 79);
+      this.labelTargetServerName.TabIndex = 1;
+      this.labelTargetServerName.Text = "Server Target name and SQL instance";
+      // 
+      // buttonDeploy
+      // 
+      this.buttonDeploy.BackColor = System.Drawing.SystemColors.HotTrack;
+      this.buttonDeploy.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.buttonDeploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonDeploy.Location = new System.Drawing.Point(538, 3);
+      this.buttonDeploy.Name = "buttonDeploy";
+      this.buttonDeploy.Size = new System.Drawing.Size(99, 73);
+      this.buttonDeploy.TabIndex = 2;
+      this.buttonDeploy.Text = "Deploy";
+      this.buttonDeploy.UseVisualStyleBackColor = false;
+      this.buttonDeploy.Click += new System.EventHandler(this.ButtonDeploy_Click);
+      // 
+      // listViewMainDeployment
+      // 
+      this.tableLayoutPanelMain.SetColumnSpan(this.listViewMainDeployment, 3);
+      this.listViewMainDeployment.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.listViewMainDeployment.HideSelection = false;
+      this.listViewMainDeployment.Location = new System.Drawing.Point(3, 82);
+      this.listViewMainDeployment.Name = "listViewMainDeployment";
+      this.listViewMainDeployment.Size = new System.Drawing.Size(1263, 506);
+      this.listViewMainDeployment.TabIndex = 3;
+      this.listViewMainDeployment.UseCompatibleStateImageBehavior = false;
       // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(1269, 662);
+      this.Controls.Add(this.tableLayoutPanelMain);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "FormMain";
@@ -409,6 +485,8 @@ namespace FredSQLCompare
       this.Load += new System.EventHandler(this.FormMain_Load);
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
+      this.tableLayoutPanelMain.ResumeLayout(false);
+      this.tableLayoutPanelMain.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -458,6 +536,11 @@ namespace FredSQLCompare
     private System.Windows.Forms.ToolStripMenuItem switchDeploymentDirectionToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem filterSetupPaneToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem deploymentWizardToolStripMenuItem;
+    private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
+    private System.Windows.Forms.Label labelSourceServerName;
+    private System.Windows.Forms.Label labelTargetServerName;
+    private System.Windows.Forms.Button buttonDeploy;
+    private System.Windows.Forms.ListView listViewMainDeployment;
   }
 }
 
