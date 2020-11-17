@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FredSQLCompare.DAL
+﻿namespace FredSQLCompare.DAL
 {
   public static class Connexions
   {
@@ -68,6 +62,5 @@ namespace FredSQLCompare.DAL
       //SELECT table_catalog, table_schema, table_name, column_name, data_type FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'facture'
       return $"SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = N'{tableName}'";
     }
-
   }
 }
