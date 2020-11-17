@@ -60,6 +60,15 @@ namespace FredSQLCompare
       this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.generateComparisonResultsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.projectOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.applicationOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.includeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.excludeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+      this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -70,7 +79,9 @@ namespace FredSQLCompare
             this.fichierToolStripMenuItem,
             this.editionToolStripMenuItem,
             this.outilsToolStripMenuItem,
-            this.aideToolStripMenuItem});
+            this.aideToolStripMenuItem,
+            this.actionsToolStripMenuItem,
+            this.toolsToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
       this.menuStrip1.Size = new System.Drawing.Size(800, 28);
@@ -300,6 +311,68 @@ namespace FredSQLCompare
       this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
       this.àproposdeToolStripMenuItem.Text = "À &propos de...";
       // 
+      // actionsToolStripMenuItem
+      // 
+      this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.includeAllToolStripMenuItem,
+            this.excludeAllToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.refreshToolStripMenuItem});
+      this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
+      this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+      this.actionsToolStripMenuItem.Text = "Actions";
+      // 
+      // toolsToolStripMenuItem
+      // 
+      this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateComparisonResultsReportToolStripMenuItem,
+            this.projectOptionsToolStripMenuItem,
+            this.applicationOptionsToolStripMenuItem});
+      this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+      this.toolsToolStripMenuItem.Text = "Tools";
+      // 
+      // generateComparisonResultsReportToolStripMenuItem
+      // 
+      this.generateComparisonResultsReportToolStripMenuItem.Name = "generateComparisonResultsReportToolStripMenuItem";
+      this.generateComparisonResultsReportToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.generateComparisonResultsReportToolStripMenuItem.Text = "Generate comparison results report";
+      // 
+      // projectOptionsToolStripMenuItem
+      // 
+      this.projectOptionsToolStripMenuItem.Name = "projectOptionsToolStripMenuItem";
+      this.projectOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.projectOptionsToolStripMenuItem.Text = "Project options";
+      // 
+      // applicationOptionsToolStripMenuItem
+      // 
+      this.applicationOptionsToolStripMenuItem.Name = "applicationOptionsToolStripMenuItem";
+      this.applicationOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.applicationOptionsToolStripMenuItem.Text = "Application options";
+      // 
+      // includeAllToolStripMenuItem
+      // 
+      this.includeAllToolStripMenuItem.Name = "includeAllToolStripMenuItem";
+      this.includeAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.includeAllToolStripMenuItem.Text = "Include all";
+      // 
+      // excludeAllToolStripMenuItem
+      // 
+      this.excludeAllToolStripMenuItem.Name = "excludeAllToolStripMenuItem";
+      this.excludeAllToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.excludeAllToolStripMenuItem.Text = "Exclude all";
+      // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      this.toolStripSeparator6.Size = new System.Drawing.Size(221, 6);
+      // 
+      // refreshToolStripMenuItem
+      // 
+      this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+      this.refreshToolStripMenuItem.Text = "Refresh comparison";
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,6 +422,15 @@ namespace FredSQLCompare
     private System.Windows.Forms.ToolStripMenuItem rechercherToolStripMenuItem;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem àproposdeToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem includeAllToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem excludeAllToolStripMenuItem;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+    private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem generateComparisonResultsReportToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem projectOptionsToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem applicationOptionsToolStripMenuItem;
   }
 }
 
