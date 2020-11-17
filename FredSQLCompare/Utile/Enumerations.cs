@@ -5,7 +5,11 @@
     public enum SqlObjectType
     {
       Table,
-      StoredProcedure
+      StoredProcedure,
+      Function,
+      User,
+      Role,
+      Schema
     }
   }
 }
