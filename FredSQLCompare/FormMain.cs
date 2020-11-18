@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using FredSQLCompare.View;
 
 namespace FredSQLCompare
 {
@@ -19,6 +13,12 @@ namespace FredSQLCompare
 
     private void FormMain_Load(object sender, EventArgs e)
     {
+      FormDatabaseConnexion frmDbConnexion = new FormDatabaseConnexion();
+
+      if (frmDbConnexion.ShowDialog() == DialogResult.OK)
+      {
+        //_configurationOptions = frmDbConnexion.ConfigurationOptions2;
+      }
 
     }
 
