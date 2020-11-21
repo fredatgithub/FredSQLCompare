@@ -57,6 +57,7 @@
     <Compile Include="Model\ResultLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utile\Punctuation.cs" />
     <Compile Include="Utile\Enumerations.cs" />
     <Compile Include="Utile\Utility.cs" />
     <Compile Include="View\FormDatabaseConnexion.cs">
@@ -80,6 +81,7 @@
     <EmbeddedResource Include="View\FormDatabaseConnexion.resx">
       <DependentUpon>FormDatabaseConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
