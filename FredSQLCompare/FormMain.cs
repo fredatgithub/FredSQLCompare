@@ -25,6 +25,12 @@ namespace FredSQLCompare
 
       GetWindowValue();
       DisplayTitle();
+      LoadComboboxes();
+    }
+
+    private void LoadComboboxes()
+    {
+      // TODO
     }
 
     private void QuitterToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Windows.Forms;
 
 namespace FredSQLCompare.View
@@ -20,6 +17,11 @@ namespace FredSQLCompare.View
 
     private void FormDatabaseConnexion_Load(object sender, EventArgs e)
     {
+      comboBoxSourceDatabaseSource.Items.Clear();
+      comboBoxSourceDatabaseSource.Items.Add("Database");
+
+      comboBoxServerSource.Items.Clear();
+      // read XML file
 
     }
   }
