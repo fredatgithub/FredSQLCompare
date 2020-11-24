@@ -108,7 +108,6 @@ namespace FredSQLCompare.View
         MessageBox.Show("Password cannot be emptied");
         return;
       }
-
     }
 
     private void ComboBoxTargetDatabase_SelectedIndexChanged(object sender, EventArgs e)
