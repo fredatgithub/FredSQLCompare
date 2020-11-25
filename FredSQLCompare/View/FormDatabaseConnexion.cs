@@ -92,7 +92,11 @@ namespace FredSQLCompare.View
 
     private void ButtonCompareCompareNow_Click(object sender, EventArgs e)
     {
+      // recording controls states
+      Properties.Settings.Default.checkBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
+      Properties.Settings.Default.checkBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
 
+      Properties.Settings.Default.Save();
     }
 
     private void ComboBoxSourceDatabase_SelectedIndexChanged(object sender, EventArgs e)

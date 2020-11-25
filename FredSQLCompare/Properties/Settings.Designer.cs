@@ -70,5 +70,29 @@ namespace FredSQLCompare.Properties {
                 this["WindowLeft"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBoxSourceRememberCredentials {
+            get {
+                return ((bool)(this["checkBoxSourceRememberCredentials"]));
+            }
+            set {
+                this["checkBoxSourceRememberCredentials"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool checkBoxTargetRememberCredentials {
+            get {
+                return ((bool)(this["checkBoxTargetRememberCredentials"]));
+            }
+            set {
+                this["checkBoxTargetRememberCredentials"] = value;
+            }
+        }
     }
 }
