@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static FredSQLCompare.Utile.Enumerations;
 
 namespace FredSQLCompare.View
 {
@@ -97,6 +98,18 @@ namespace FredSQLCompare.View
       Properties.Settings.Default.checkBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
 
       Properties.Settings.Default.Save();
+
+      if (comboBoxSourceAuthentication.SelectedItem.ToString() == AuthenticationTypes.SQLServerAuthentication.ToString() && textBoxSourcePassword.Text == string.Empty)
+      {
+        MessageBox.Show("The password cannot be empty if SQL authentication is choosen");
+        return;
+      }
+
+      if (comboBoxSourceAuthentication.SelectedItem.ToString() == AuthenticationTypes.SQLServerAuthentication.ToString() && textBoxSourceName.Text == string.Empty)
+      {
+        MessageBox.Show("The user name cannot be empty if SQL authentication is choosen");
+        return;
+      }
     }
 
     private void ComboBoxSourceDatabase_SelectedIndexChanged(object sender, EventArgs e)
