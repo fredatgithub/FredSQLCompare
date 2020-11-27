@@ -14,11 +14,17 @@
     <Setting Name="WindowLeft" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="checkBoxSourceRememberCredentials" Type="System.Boolean" Scope="User">
+    <Setting Name="CheckBoxSourceRememberCredentials" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="checkBoxTargetRememberCredentials" Type="System.Boolean" Scope="User">
+    <Setting Name="CheckBoxTargetRememberCredentials" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ComboBoxSourceAuthenticationIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ComboBoxTargetAuthenticationIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

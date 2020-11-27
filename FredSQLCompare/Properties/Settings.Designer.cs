@@ -74,24 +74,48 @@ namespace FredSQLCompare.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool checkBoxSourceRememberCredentials {
+        public bool CheckBoxSourceRememberCredentials {
             get {
-                return ((bool)(this["checkBoxSourceRememberCredentials"]));
+                return ((bool)(this["CheckBoxSourceRememberCredentials"]));
             }
             set {
-                this["checkBoxSourceRememberCredentials"] = value;
+                this["CheckBoxSourceRememberCredentials"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool checkBoxTargetRememberCredentials {
+        public bool CheckBoxTargetRememberCredentials {
             get {
-                return ((bool)(this["checkBoxTargetRememberCredentials"]));
+                return ((bool)(this["CheckBoxTargetRememberCredentials"]));
             }
             set {
-                this["checkBoxTargetRememberCredentials"] = value;
+                this["CheckBoxTargetRememberCredentials"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ComboBoxSourceAuthenticationIndex {
+            get {
+                return ((int)(this["ComboBoxSourceAuthenticationIndex"]));
+            }
+            set {
+                this["ComboBoxSourceAuthenticationIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ComboBoxTargetAuthenticationIndex {
+            get {
+                return ((int)(this["ComboBoxTargetAuthenticationIndex"]));
+            }
+            set {
+                this["ComboBoxTargetAuthenticationIndex"] = value;
             }
         }
     }

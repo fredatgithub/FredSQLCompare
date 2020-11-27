@@ -31,6 +31,7 @@ namespace FredSQLCompare
     private void LoadComboboxes()
     {
       // TODO
+
     }
 
     private void QuitterToolStripMenuItem_Click(object sender, EventArgs e)

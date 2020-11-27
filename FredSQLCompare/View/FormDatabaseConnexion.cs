@@ -38,6 +38,8 @@ namespace FredSQLCompare.View
       comboBoxTargetAuthentication.Items.Add("Azure Active Directory - Password");
       comboBoxTargetAuthentication.Items.Add("Azure Active Directory - Integrated");
 
+      comboBoxSourceAuthentication.SelectedIndex = Properties.Settings.Default.ComboBoxSourceAuthenticationIndex;
+      comboBoxTargetAuthentication.SelectedIndex = Properties.Settings.Default.ComboBoxTargetAuthenticationIndex;
 
     }
 
@@ -94,22 +96,29 @@ namespace FredSQLCompare.View
     private void ButtonCompareCompareNow_Click(object sender, EventArgs e)
     {
       // recording controls states
-      Properties.Settings.Default.checkBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
-      Properties.Settings.Default.checkBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
+      Properties.Settings.Default.CheckBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
+      Properties.Settings.Default.CheckBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
 
       Properties.Settings.Default.Save();
 
-      if (comboBoxSourceAuthentication.SelectedItem.ToString() == AuthenticationTypes.SQLServerAuthentication.ToString() && textBoxSourcePassword.Text == string.Empty)
+      if (comboBoxSourceAuthentication.SelectedIndex != -1 && comboBoxSourceAuthentication.SelectedItem.ToString().ToLower().Replace(" ", "") == AuthenticationTypes.AuthenticationSQLServer.ToString().ToLower() && string.IsNullOrEmpty(textBoxSourcePassword.Text))
       {
         MessageBox.Show("The password cannot be empty if SQL authentication is choosen");
         return;
       }
 
-      if (comboBoxSourceAuthentication.SelectedItem.ToString() == AuthenticationTypes.SQLServerAuthentication.ToString() && textBoxSourceName.Text == string.Empty)
+      if (comboBoxSourceAuthentication.SelectedIndex != -1 && comboBoxSourceAuthentication.SelectedItem.ToString().ToLower().Replace(" ", "") == AuthenticationTypes.AuthenticationSQLServer.ToString().ToLower() && string.IsNullOrEmpty(textBoxSourceName.Text))
       {
         MessageBox.Show("The user name cannot be empty if SQL authentication is choosen");
         return;
       }
+
+
+      //saving controls state
+      Properties.Settings.Default.ComboBoxSourceAuthenticationIndex = comboBoxSourceAuthentication.SelectedIndex;
+      Properties.Settings.Default.ComboBoxTargetAuthenticationIndex = comboBoxTargetAuthentication.SelectedIndex;
+      Properties.Settings.Default.Save();
+      Close();
     }
 
     private void ComboBoxSourceDatabase_SelectedIndexChanged(object sender, EventArgs e)

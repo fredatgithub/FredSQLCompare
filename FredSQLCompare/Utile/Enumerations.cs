@@ -1,6 +1,6 @@
 ﻿namespace FredSQLCompare.Utile
 {
-  public class Enumerations
+  public static class Enumerations
   {
     public enum SqlObjectTypeSimpleList
     {
@@ -68,7 +68,7 @@
     public enum AuthenticationTypes
     {
       WindowsAuthenticationOnPrem,
-      SQLServerAuthentication,
+      AuthenticationSQLServer,
       ActiveDirectoryIntegratedAuthenticationAzure,
       ActiveDirectoryInteractiveAuthenticationAzure,
       ActiveDirectoryPasswordAuthenticationAzure
