@@ -40,6 +40,8 @@ namespace FredSQLCompare.View
 
       comboBoxSourceAuthentication.SelectedIndex = Properties.Settings.Default.ComboBoxSourceAuthenticationIndex;
       comboBoxTargetAuthentication.SelectedIndex = Properties.Settings.Default.ComboBoxTargetAuthenticationIndex;
+      checkBoxSourceRememberCredentials.Checked = Properties.Settings.Default.CheckBoxSourceRememberCredentials;
+      checkBoxTargetRememberCredentials.Checked = Properties.Settings.Default.CheckBoxTargetRememberCredentials;
 
     }
 
@@ -117,6 +119,8 @@ namespace FredSQLCompare.View
       //saving controls state
       Properties.Settings.Default.ComboBoxSourceAuthenticationIndex = comboBoxSourceAuthentication.SelectedIndex;
       Properties.Settings.Default.ComboBoxTargetAuthenticationIndex = comboBoxTargetAuthentication.SelectedIndex;
+      Properties.Settings.Default.CheckBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
+      Properties.Settings.Default.CheckBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
       Properties.Settings.Default.Save();
       Close();
     }

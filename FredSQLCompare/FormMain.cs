@@ -36,6 +36,8 @@ namespace FredSQLCompare
 
     private void QuitterToolStripMenuItem_Click(object sender, EventArgs e)
     {
+      //save application position and size
+      SaveWindowValue();
       Application.Exit();
     }
 
