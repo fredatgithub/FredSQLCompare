@@ -278,6 +278,7 @@ namespace FredSQLCompare.View
       this.textBoxTargetPassword.Location = new System.Drawing.Point(478, 209);
       this.textBoxTargetPassword.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxTargetPassword.Name = "textBoxTargetPassword";
+      this.textBoxTargetPassword.PasswordChar = '*';
       this.textBoxTargetPassword.Size = new System.Drawing.Size(221, 20);
       this.textBoxTargetPassword.TabIndex = 25;
       // 
@@ -430,6 +431,7 @@ namespace FredSQLCompare.View
       this.textBoxSourcePassword.Location = new System.Drawing.Point(111, 209);
       this.textBoxSourcePassword.Margin = new System.Windows.Forms.Padding(2);
       this.textBoxSourcePassword.Name = "textBoxSourcePassword";
+      this.textBoxSourcePassword.PasswordChar = '*';
       this.textBoxSourcePassword.Size = new System.Drawing.Size(221, 20);
       this.textBoxSourcePassword.TabIndex = 10;
       // 

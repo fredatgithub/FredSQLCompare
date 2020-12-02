@@ -118,5 +118,29 @@ namespace FredSQLCompare.Properties {
                 this["ComboBoxTargetAuthenticationIndex"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxSourceName {
+            get {
+                return ((string)(this["textBoxSourceName"]));
+            }
+            set {
+                this["textBoxSourceName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string textBoxTargetName {
+            get {
+                return ((string)(this["textBoxTargetName"]));
+            }
+            set {
+                this["textBoxTargetName"] = value;
+            }
+        }
     }
 }

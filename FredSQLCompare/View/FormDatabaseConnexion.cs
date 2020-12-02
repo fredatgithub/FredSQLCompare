@@ -42,7 +42,8 @@ namespace FredSQLCompare.View
       comboBoxTargetAuthentication.SelectedIndex = Properties.Settings.Default.ComboBoxTargetAuthenticationIndex;
       checkBoxSourceRememberCredentials.Checked = Properties.Settings.Default.CheckBoxSourceRememberCredentials;
       checkBoxTargetRememberCredentials.Checked = Properties.Settings.Default.CheckBoxTargetRememberCredentials;
-
+      textBoxTargetName.Text = Properties.Settings.Default.textBoxTargetName;
+      textBoxSourceName.Text = Properties.Settings.Default.textBoxSourceName;
     }
 
     private void ButtonSourceCreate_Click(object sender, EventArgs e)
@@ -122,6 +123,8 @@ namespace FredSQLCompare.View
       Properties.Settings.Default.CheckBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
       Properties.Settings.Default.CheckBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
       Properties.Settings.Default.Save();
+      Properties.Settings.Default.textBoxTargetName = textBoxTargetName.Text;
+      Properties.Settings.Default.textBoxSourceName = textBoxSourceName.Text;
       Close();
     }
 
