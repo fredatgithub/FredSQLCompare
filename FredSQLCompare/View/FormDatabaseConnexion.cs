@@ -78,16 +78,27 @@ namespace FredSQLCompare.View
 
     private void ButtonCompareToRightArrow_Click(object sender, EventArgs e)
     {
-
-    }
-
-    private void ButtonCompareToRightAndLeftArrow_Click(object sender, EventArgs e)
-    {
       // left parameters go to right
       textBoxTargetName.Text = textBoxSourceName.Text;
       textBoxTargetPassword.Text = textBoxSourcePassword.Text;
       comboBoxTargetAuthentication.SelectedIndex = comboBoxSourceAuthentication.SelectedIndex;
       checkBoxTargetRememberCredentials.Checked = checkBoxSourceRememberCredentials.Checked;
+    }
+
+    private void ButtonCompareToRightAndLeftArrow_Click(object sender, EventArgs e)
+    {
+      // switching parameters right to left
+      string tmpTextTargetNameText = textBoxTargetName.Text;
+      string tmpTextBoxTargetPasswordText = textBoxTargetPassword.Text;
+      int tmpComboBoxTargetAuthenticationSelectedIndex = comboBoxTargetAuthentication.SelectedIndex;
+      bool checkBoxTargetRememberCredentialsChecked = checkBoxTargetRememberCredentials.Checked;
+
+      ButtonCompareToRightArrow_Click(sender, e);
+
+      textBoxSourceName.Text = tmpTextTargetNameText;
+      textBoxSourcePassword.Text = tmpTextBoxTargetPasswordText;
+      comboBoxSourceAuthentication.SelectedIndex = tmpComboBoxTargetAuthenticationSelectedIndex;
+      checkBoxSourceRememberCredentials.Checked = checkBoxTargetRememberCredentialsChecked;
     }
 
     private void ButtonCompareToLeftArrow_Click(object sender, EventArgs e)
