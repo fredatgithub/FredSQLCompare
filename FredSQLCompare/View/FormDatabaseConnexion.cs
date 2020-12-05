@@ -24,7 +24,8 @@ namespace FredSQLCompare.View
       comboBoxSourceDatabaseSource.Items.Add("Database");
 
       comboBoxServerSource.Items.Clear();
-      // read XML file
+      comboBoxServerSource.Items.Add("DESKTOP-MSI");
+      // should read XML file TODO
 
       comboBoxSourceAuthentication.Items.Clear();
       comboBoxSourceAuthentication.Items.Add("Authentication Windows");
@@ -63,9 +64,9 @@ namespace FredSQLCompare.View
     private void ButtonSourceRefresh_Click(object sender, EventArgs e)
     {
       // refresh the list of source database combobox
-      // use of GetAllDatabasesRequest() method
+      // use of GetAllDatabaseNamesRequest() method
       string request = Connexions.GetAllDatabaseNamesRequest();
-      DatabaseAuthentication dbAuthentication = new DatabaseAuthentication
+      DatabaseAuthentication dbConnexion = new DatabaseAuthentication
       {
         UserName = textBoxSourceName.Text,
         UserPassword = textBoxSourcePassword.Text,
@@ -73,7 +74,11 @@ namespace FredSQLCompare.View
         DatabaseName = "master"
       };
 
+      //string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      string sqlQuery = "select name from sys.databases";
 
+      var queryResult = DALHelper.ExecuteSqlQuery(sqlQuery, dbConnexion.DatabaseName, "DESKTOP-MSI");
+      MessageBox.Show(queryResult);
     }
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)

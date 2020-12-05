@@ -1,0 +1,86 @@
+﻿using System;
+using System.Data.SqlClient;
+
+namespace FredSQLCompare.DAL
+{
+  public static class DALHelper
+  {
+    public static string GetConnexionString(string databaseName = "master", string sqlServerName = ".")
+    {
+      return $"Data Source={sqlServerName};Initial Catalog={databaseName};Integrated Security=True";
+    }
+
+    public static string ExecuteSqlQuery(string sqlQuery, string databaseName, string sqlServerName)
+    {
+      string result = string.Empty;
+      string connectionString = GetConnexionString(databaseName, sqlServerName);
+      // query = "SELECT TOP(1) Date FROM tableName order by date DESC";
+      string query = sqlQuery;
+
+      using (SqlConnection connection = new SqlConnection(connectionString))
+      {
+        SqlCommand command = new SqlCommand(query, connection);
+        try
+        {
+          connection.Open();
+          var queryResult = command.ExecuteScalar();
+          if (queryResult == null)
+          {
+            result = string.Empty;
+          }
+          else
+          {
+            result = queryResult.ToString();
+          }
+        }
+        catch (Exception exception)
+        {
+          Console.WriteLine(exception.Message);
+        }
+        finally
+        {
+          connection.Close();
+        }
+      }
+
+      if (result == null)
+      {
+        result = string.Empty;
+      }
+
+      return result;
+    }
+
+    public static bool WriteToDatabase(string sqlQuery, DateTime requestDate, double euro, double dollar)
+    {
+      bool result = false;
+      using (SqlConnection connection = new SqlConnection(GetConnexionString()))
+      {
+        //string query = "INSERT INTO [dbo].[BitCoin] ([Date], [RateEuros], [RateDollar]) VALUES(@theDate, @rateEuro, @ratedollar)";
+        string query = sqlQuery;
+
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+          command.Parameters.AddWithValue("@theDate", requestDate);
+          command.Parameters.AddWithValue("@rateEuro", euro);
+          command.Parameters.AddWithValue("@ratedollar", dollar);
+
+          connection.Open();
+          var QueryResult = command.ExecuteNonQuery();
+
+          // Check Error
+          if (QueryResult < 0)
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+        }
+      }
+
+      return result;
+    }
+  }
+}
