@@ -142,5 +142,27 @@ namespace FredSQLCompare.DAL
 
       return list;
     }
+
+    public static IEnumerable<string> GetData(string filter, Func<IDataRecord, string> factory, string databaseName, string sqlServerName, string sqlQuery)
+    {
+      //string sql = "SELECT * FROM [SomeTable] WHERE SomeColumn= @Filter";
+
+      using (SqlConnection cn = new SqlConnection(GetConnexionString(databaseName, sqlServerName)))
+      using (SqlCommand cmd = new SqlCommand(sqlQuery, cn))
+      {
+        cmd.Parameters.Add("@Filter", SqlDbType.NVarChar, 255).Value = filter;
+        cn.Open();
+
+        using (IDataReader rdr = cmd.ExecuteReader())
+        {
+          while (rdr.Read())
+          {
+            yield return factory(rdr);
+          }
+
+          rdr.Close();
+        }
+      }
+    }
   }
 }

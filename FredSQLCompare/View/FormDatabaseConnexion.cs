@@ -82,7 +82,12 @@ namespace FredSQLCompare.View
       string hostName = Dns.GetHostName();
       SqlDataReader queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
       comboBoxSourceDatabase.Items.Clear();
-      foreach (var item in DALHelper.DataReaderMapToList<string>(queryResult))
+      //foreach (var item in DALHelper.DataReaderMapToList<string>(queryResult))
+      //{
+      //  comboBoxSourceDatabase.Items.Add(item.ToString());
+      //}
+
+      foreach (var item in DALHelper.GetData("", null, "master", Dns.GetHostName(), sqlQuery))
       {
         comboBoxSourceDatabase.Items.Add(item.ToString());
       }
