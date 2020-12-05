@@ -1,6 +1,7 @@
 ﻿using FredSQLCompare.DAL;
 using FredSQLCompare.Model;
 using System;
+using System.Net;
 using System.Windows.Forms;
 using static FredSQLCompare.Utile.Enumerations;
 
@@ -77,8 +78,8 @@ namespace FredSQLCompare.View
       RecordParameters();
       //string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
       string sqlQuery = "select name from sys.databases";
-
-      var queryResult = DALHelper.ExecuteSqlQuery(sqlQuery, dbConnexion.DatabaseName, "DESKTOP-MSI");
+      string hostName = Dns.GetHostName();
+      var queryResult = DALHelper.ExecuteSqlQuery(sqlQuery, dbConnexion.DatabaseName, hostName);
       MessageBox.Show(queryResult);
     }
 
