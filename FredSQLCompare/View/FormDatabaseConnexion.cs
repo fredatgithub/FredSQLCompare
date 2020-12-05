@@ -79,8 +79,9 @@ namespace FredSQLCompare.View
       //string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
       string sqlQuery = "select name from sys.databases";
       string hostName = Dns.GetHostName();
-      var queryResult = DALHelper.ExecuteSqlQuery(sqlQuery, dbConnexion.DatabaseName, hostName);
-      MessageBox.Show(queryResult);
+      var queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
+
+      MessageBox.Show(queryResult.ToString());
     }
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)

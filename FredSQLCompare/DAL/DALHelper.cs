@@ -10,7 +10,7 @@ namespace FredSQLCompare.DAL
       return $"Data Source={sqlServerName};Initial Catalog={databaseName};Integrated Security=True";
     }
 
-    public static string ExecuteSqlQuery(string sqlQuery, string databaseName, string sqlServerName)
+    public static string ExecuteSqlQueryOneResult(string sqlQuery, string databaseName, string sqlServerName)
     {
       string result = string.Empty;
       string connectionString = GetConnexionString(databaseName, sqlServerName);
@@ -46,6 +46,42 @@ namespace FredSQLCompare.DAL
       if (result == null)
       {
         result = string.Empty;
+      }
+
+      return result;
+    }
+
+    public static SqlDataReader ExecuteSqlQueryManyResults(string sqlQuery, string databaseName, string sqlServerName)
+    {
+      SqlDataReader result = null;
+      string connectionString = GetConnexionString(databaseName, sqlServerName);
+      // query = "SELECT * FROM tableName";
+      string query = sqlQuery;
+
+      using (SqlConnection connection = new SqlConnection(connectionString))
+      {
+        SqlCommand command = new SqlCommand(query, connection);
+        try
+        {
+          connection.Open();
+          SqlDataReader queryResult = command.ExecuteReader();
+          if (queryResult == null)
+          {
+            result = null;
+          }
+          else
+          {
+            result = queryResult;
+          }
+        }
+        catch (Exception)
+        {
+          //MessageBox.show(exception.Message);
+        }
+        finally
+        {
+          connection.Close();
+        }
       }
 
       return result;
