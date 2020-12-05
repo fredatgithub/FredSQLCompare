@@ -1,6 +1,7 @@
 ﻿using FredSQLCompare.DAL;
 using FredSQLCompare.Model;
 using System;
+using System.Data.SqlClient;
 using System.Net;
 using System.Windows.Forms;
 using static FredSQLCompare.Utile.Enumerations;
@@ -76,12 +77,16 @@ namespace FredSQLCompare.View
       };
 
       RecordParameters();
-      //string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
-      string sqlQuery = "select name from sys.databases";
+      string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      //string sqlQuery = "select name from sys.databases";
       string hostName = Dns.GetHostName();
-      var queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
+      SqlDataReader queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
+      comboBoxSourceDatabase.Items.Clear();
+      foreach (var item in DALHelper.DataReaderMapToList<string>(queryResult))
+      {
+        comboBoxSourceDatabase.Items.Add(item.ToString());
+      }
 
-      MessageBox.Show(queryResult.ToString());
     }
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)
