@@ -74,6 +74,7 @@ namespace FredSQLCompare.View
         DatabaseName = "master"
       };
 
+      RecordParameters();
       //string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
       string sqlQuery = "select name from sys.databases";
 
@@ -141,6 +142,12 @@ namespace FredSQLCompare.View
 
     private void ButtonCompareCompareNow_Click(object sender, EventArgs e)
     {
+      RecordParameters();
+
+    }
+
+    private void RecordParameters()
+    {
       // recording controls states
       Properties.Settings.Default.CheckBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
       Properties.Settings.Default.CheckBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
@@ -159,16 +166,16 @@ namespace FredSQLCompare.View
         return;
       }
 
-
       //saving controls state
       Properties.Settings.Default.ComboBoxSourceAuthenticationIndex = comboBoxSourceAuthentication.SelectedIndex;
       Properties.Settings.Default.ComboBoxTargetAuthenticationIndex = comboBoxTargetAuthentication.SelectedIndex;
       Properties.Settings.Default.CheckBoxSourceRememberCredentials = checkBoxSourceRememberCredentials.Checked;
       Properties.Settings.Default.CheckBoxTargetRememberCredentials = checkBoxTargetRememberCredentials.Checked;
-      Properties.Settings.Default.Save();
+
       Properties.Settings.Default.textBoxTargetName = textBoxTargetName.Text;
       Properties.Settings.Default.textBoxSourceName = textBoxSourceName.Text;
-      Close();
+
+      Properties.Settings.Default.Save();
     }
 
     private void ComboBoxSourceDatabase_SelectedIndexChanged(object sender, EventArgs e)
