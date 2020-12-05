@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FredSQLCompare.DAL;
+using FredSQLCompare.Model;
+using System;
 using System.Windows.Forms;
 using static FredSQLCompare.Utile.Enumerations;
 
@@ -48,31 +50,48 @@ namespace FredSQLCompare.View
 
     private void ButtonSourceCreate_Click(object sender, EventArgs e)
     {
+      // create a new database
 
     }
 
     private void ButtonTargetCreate_Click(object sender, EventArgs e)
     {
+      // create a new database
 
     }
 
     private void ButtonSourceRefresh_Click(object sender, EventArgs e)
     {
+      // refresh the list of source database combobox
+      // use of GetAllDatabasesRequest() method
+      string request = Connexions.GetAllDatabaseNamesRequest();
+      DatabaseAuthentication dbAuthentication = new DatabaseAuthentication
+      {
+        UserName = textBoxSourceName.Text,
+        UserPassword = textBoxSourcePassword.Text,
+        ServerName = comboBoxServerSource.SelectedItem.ToString(),
+        DatabaseName = "master"
+      };
+
 
     }
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)
     {
+      // refresh the list of source database combobox
+      // get all databases for the db connexion parameters entered
 
     }
 
     private void ButtonCompareSave_Click(object sender, EventArgs e)
     {
+      // saving parameters
 
     }
 
     private void ButtonCompareSaveAs_Click(object sender, EventArgs e)
     {
+      // saving parameters as ...
 
     }
 

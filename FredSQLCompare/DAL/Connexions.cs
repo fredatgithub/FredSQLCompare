@@ -27,7 +27,7 @@
       return "SELECT sobjects.name FROM sysobjects sobjects WHERE sobjects.xtype = 'FN'";
     }
 
-    public static string GetAllDatabasesRequest()
+    public static string GetAllDatabaseNamesRequest()
     {
       return "use master  select name from sys.databases where name NOT IN ('master', 'model', 'msdb', 'tempdb');";
     }
