@@ -189,6 +189,41 @@ namespace FredSQLCompare.View
     private void ButtonCompareCompareNow_Click(object sender, EventArgs e)
     {
       RecordParameters();
+      if (comboBoxServerSource.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to choose a source SQL server");
+        comboBoxServerSource.Focus();
+        return;
+      }
+
+      if (comboBoxTargetSource.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to choose a target SQL server");
+        comboBoxTargetSource.Focus();
+        return;
+      }
+
+      //comboBoxSourceDatabase
+      if (comboBoxSourceDatabase.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to choose a source database");
+        comboBoxSourceDatabase.Focus();
+        return;
+      }
+
+      //comboBoxTargetDatabase
+      if (comboBoxTargetDatabase.SelectedIndex == -1)
+      {
+        MessageBox.Show("You have to choose a target database");
+        comboBoxTargetDatabase.Focus();
+        return;
+      }
+
+      // verify both db connexion
+      if (!DALHelper.VerifyDatabaseConnexion("select * from "))
+      {
+
+      }
 
     }
 

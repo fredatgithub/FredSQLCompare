@@ -337,9 +337,9 @@ namespace FredSQLCompare.View
       this.labelTargetServer.Location = new System.Drawing.Point(398, 91);
       this.labelTargetServer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelTargetServer.Name = "labelTargetServer";
-      this.labelTargetServer.Size = new System.Drawing.Size(44, 13);
+      this.labelTargetServer.Size = new System.Drawing.Size(72, 13);
       this.labelTargetServer.TabIndex = 19;
-      this.labelTargetServer.Text = "Server";
+      this.labelTargetServer.Text = "SQL Server";
       // 
       // comboBoxTargetSource
       // 
@@ -490,9 +490,9 @@ namespace FredSQLCompare.View
       this.labelSourceServer.Location = new System.Drawing.Point(31, 91);
       this.labelSourceServer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelSourceServer.Name = "labelSourceServer";
-      this.labelSourceServer.Size = new System.Drawing.Size(44, 13);
+      this.labelSourceServer.Size = new System.Drawing.Size(72, 13);
       this.labelSourceServer.TabIndex = 3;
-      this.labelSourceServer.Text = "Server";
+      this.labelSourceServer.Text = "SQL Server";
       // 
       // comboBoxServerSource
       // 
