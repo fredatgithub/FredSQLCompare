@@ -190,5 +190,29 @@ namespace FredSQLCompare.Properties {
                 this["comboBoxTargetDatabaseTarget"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxSourceDatabase {
+            get {
+                return ((string)(this["comboBoxSourceDatabase"]));
+            }
+            set {
+                this["comboBoxSourceDatabase"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string comboBoxTargetDatabase {
+            get {
+                return ((string)(this["comboBoxTargetDatabase"]));
+            }
+            set {
+                this["comboBoxTargetDatabase"] = value;
+            }
+        }
     }
 }

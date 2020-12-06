@@ -69,6 +69,18 @@ namespace FredSQLCompare.View
       comboBoxServerSource.SelectedIndex = Properties.Settings.Default.comboBoxServerSource;
       comboBoxTargetSource.SelectedIndex = Properties.Settings.Default.comboBoxTargetSource;
 
+      comboBoxSourceDatabase.Items.Clear();
+      foreach (string item in Properties.Settings.Default.comboBoxSourceDatabase.Split(';'))
+      {
+        comboBoxSourceDatabase.Items.Add(item);
+      }
+
+      comboBoxTargetDatabase.Items.Clear();
+      foreach (string item in Properties.Settings.Default.comboBoxTargetDatabase.Split(';'))
+      {
+        comboBoxTargetDatabase.Items.Add(item);
+      }
+
     }
 
     private void ButtonSourceCreate_Click(object sender, EventArgs e)
@@ -223,6 +235,35 @@ namespace FredSQLCompare.View
 
       Properties.Settings.Default.comboBoxSourceDatabaseSource = comboBoxSourceDatabaseSource.SelectedIndex;
       Properties.Settings.Default.comboBoxTargetDatabaseTarget = comboBoxTargetDatabaseTarget.SelectedIndex;
+
+      //comboBoxTargetDatabase
+      string oneString = string.Empty;
+      if (comboBoxTargetDatabase.Items.Count > 0)
+      {
+        foreach (var item in comboBoxTargetDatabase.Items)
+        {
+          oneString += $"{item};";
+        }
+
+        oneString = oneString.TrimEnd(';');
+      }
+
+      Properties.Settings.Default.comboBoxTargetDatabase = oneString;
+
+      //comboBoxTargetDatabase
+      oneString = string.Empty;
+      if (comboBoxSourceDatabase.Items.Count > 0)
+      {
+        foreach (var item in comboBoxSourceDatabase.Items)
+        {
+          oneString += $"{item};";
+        }
+
+        oneString = oneString.TrimEnd(';');
+      }
+
+      Properties.Settings.Default.comboBoxSourceDatabase = oneString;
+
 
       Properties.Settings.Default.Save();
     }
