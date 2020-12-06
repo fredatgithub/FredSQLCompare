@@ -42,24 +42,6 @@ namespace FredSQLCompare
       this.aperçuavantimpressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.editionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.annulerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.rétablirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-      this.couperToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.copierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.collerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-      this.sélectionnertoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.personnaliserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.sommaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-      this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.includeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.excludeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,10 +50,17 @@ namespace FredSQLCompare
       this.switchDeploymentDirectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.filterSetupPaneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.deploymentWizardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.editParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.generateComparisonResultsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.projectOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.applicationOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.aideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.sommaireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.rechercherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.àproposdeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
       this.labelSourceServerName = new System.Windows.Forms.Label();
       this.labelTargetServerName = new System.Windows.Forms.Label();
@@ -86,14 +75,13 @@ namespace FredSQLCompare
       this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fichierToolStripMenuItem,
-            this.editionToolStripMenuItem,
-            this.outilsToolStripMenuItem,
-            this.aideToolStripMenuItem,
             this.actionsToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.aideToolStripMenuItem});
       this.menuStrip1.Location = new System.Drawing.Point(0, 0);
       this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(1269, 30);
+      this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+      this.menuStrip1.Size = new System.Drawing.Size(952, 24);
       this.menuStrip1.TabIndex = 0;
       this.menuStrip1.Text = "menuStrip1";
       // 
@@ -111,7 +99,7 @@ namespace FredSQLCompare
             this.toolStripSeparator2,
             this.quitterToolStripMenuItem});
       this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-      this.fichierToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+      this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
       this.fichierToolStripMenuItem.Text = "&Fichier";
       // 
       // nouveauToolStripMenuItem
@@ -120,7 +108,7 @@ namespace FredSQLCompare
       this.nouveauToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
       this.nouveauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-      this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.nouveauToolStripMenuItem.Text = "&Nouveau";
       // 
       // ouvrirToolStripMenuItem
@@ -129,13 +117,13 @@ namespace FredSQLCompare
       this.ouvrirToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
       this.ouvrirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-      this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.ouvrirToolStripMenuItem.Text = "&Ouvrir";
       // 
       // toolStripSeparator
       // 
       this.toolStripSeparator.Name = "toolStripSeparator";
-      this.toolStripSeparator.Size = new System.Drawing.Size(252, 6);
+      this.toolStripSeparator.Size = new System.Drawing.Size(202, 6);
       // 
       // enregistrerToolStripMenuItem
       // 
@@ -143,19 +131,19 @@ namespace FredSQLCompare
       this.enregistrerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
       this.enregistrerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-      this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.enregistrerToolStripMenuItem.Text = "&Enregistrer";
       // 
       // enregistrersousToolStripMenuItem
       // 
       this.enregistrersousToolStripMenuItem.Name = "enregistrersousToolStripMenuItem";
-      this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.enregistrersousToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.enregistrersousToolStripMenuItem.Text = "Enregistrer &sous";
       // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
-      this.toolStripSeparator1.Size = new System.Drawing.Size(252, 6);
+      this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
       // 
       // imprimerToolStripMenuItem
       // 
@@ -163,7 +151,7 @@ namespace FredSQLCompare
       this.imprimerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
       this.imprimerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-      this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.imprimerToolStripMenuItem.Text = "&Imprimer";
       // 
       // aperçuavantimpressionToolStripMenuItem
@@ -171,154 +159,20 @@ namespace FredSQLCompare
       this.aperçuavantimpressionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aperçuavantimpressionToolStripMenuItem.Image")));
       this.aperçuavantimpressionToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
       this.aperçuavantimpressionToolStripMenuItem.Name = "aperçuavantimpressionToolStripMenuItem";
-      this.aperçuavantimpressionToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.aperçuavantimpressionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.aperçuavantimpressionToolStripMenuItem.Text = "Aperçu a&vant impression";
       // 
       // toolStripSeparator2
       // 
       this.toolStripSeparator2.Name = "toolStripSeparator2";
-      this.toolStripSeparator2.Size = new System.Drawing.Size(252, 6);
+      this.toolStripSeparator2.Size = new System.Drawing.Size(202, 6);
       // 
       // quitterToolStripMenuItem
       // 
       this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-      this.quitterToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
+      this.quitterToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
       this.quitterToolStripMenuItem.Text = "&Quitter";
       this.quitterToolStripMenuItem.Click += new System.EventHandler(this.QuitterToolStripMenuItem_Click);
-      // 
-      // editionToolStripMenuItem
-      // 
-      this.editionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.annulerToolStripMenuItem,
-            this.rétablirToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.couperToolStripMenuItem,
-            this.copierToolStripMenuItem,
-            this.collerToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.sélectionnertoutToolStripMenuItem});
-      this.editionToolStripMenuItem.Name = "editionToolStripMenuItem";
-      this.editionToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
-      this.editionToolStripMenuItem.Text = "&Edition";
-      // 
-      // annulerToolStripMenuItem
-      // 
-      this.annulerToolStripMenuItem.Name = "annulerToolStripMenuItem";
-      this.annulerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-      this.annulerToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.annulerToolStripMenuItem.Text = "&Annuler";
-      // 
-      // rétablirToolStripMenuItem
-      // 
-      this.rétablirToolStripMenuItem.Name = "rétablirToolStripMenuItem";
-      this.rétablirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-      this.rétablirToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.rétablirToolStripMenuItem.Text = "&Rétablir";
-      // 
-      // toolStripSeparator3
-      // 
-      this.toolStripSeparator3.Name = "toolStripSeparator3";
-      this.toolStripSeparator3.Size = new System.Drawing.Size(202, 6);
-      // 
-      // couperToolStripMenuItem
-      // 
-      this.couperToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("couperToolStripMenuItem.Image")));
-      this.couperToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.couperToolStripMenuItem.Name = "couperToolStripMenuItem";
-      this.couperToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-      this.couperToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.couperToolStripMenuItem.Text = "&Couper";
-      // 
-      // copierToolStripMenuItem
-      // 
-      this.copierToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copierToolStripMenuItem.Image")));
-      this.copierToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.copierToolStripMenuItem.Name = "copierToolStripMenuItem";
-      this.copierToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-      this.copierToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.copierToolStripMenuItem.Text = "Co&pier";
-      // 
-      // collerToolStripMenuItem
-      // 
-      this.collerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("collerToolStripMenuItem.Image")));
-      this.collerToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-      this.collerToolStripMenuItem.Name = "collerToolStripMenuItem";
-      this.collerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-      this.collerToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.collerToolStripMenuItem.Text = "Co&ller";
-      // 
-      // toolStripSeparator4
-      // 
-      this.toolStripSeparator4.Name = "toolStripSeparator4";
-      this.toolStripSeparator4.Size = new System.Drawing.Size(202, 6);
-      // 
-      // sélectionnertoutToolStripMenuItem
-      // 
-      this.sélectionnertoutToolStripMenuItem.Name = "sélectionnertoutToolStripMenuItem";
-      this.sélectionnertoutToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-      this.sélectionnertoutToolStripMenuItem.Text = "Sélectio&nner tout";
-      // 
-      // outilsToolStripMenuItem
-      // 
-      this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.personnaliserToolStripMenuItem,
-            this.optionsToolStripMenuItem});
-      this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
-      this.outilsToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
-      this.outilsToolStripMenuItem.Text = "&Outils";
-      // 
-      // personnaliserToolStripMenuItem
-      // 
-      this.personnaliserToolStripMenuItem.Name = "personnaliserToolStripMenuItem";
-      this.personnaliserToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
-      this.personnaliserToolStripMenuItem.Text = "&Personnaliser";
-      // 
-      // optionsToolStripMenuItem
-      // 
-      this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-      this.optionsToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
-      this.optionsToolStripMenuItem.Text = "&Options";
-      // 
-      // aideToolStripMenuItem
-      // 
-      this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sommaireToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.rechercherToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.àproposdeToolStripMenuItem});
-      this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-      this.aideToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
-      this.aideToolStripMenuItem.Text = "&Aide";
-      // 
-      // sommaireToolStripMenuItem
-      // 
-      this.sommaireToolStripMenuItem.Name = "sommaireToolStripMenuItem";
-      this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-      this.sommaireToolStripMenuItem.Text = "&Sommaire";
-      // 
-      // indexToolStripMenuItem
-      // 
-      this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-      this.indexToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-      this.indexToolStripMenuItem.Text = "&Index";
-      // 
-      // rechercherToolStripMenuItem
-      // 
-      this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
-      this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-      this.rechercherToolStripMenuItem.Text = "&Rechercher";
-      // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      this.toolStripSeparator5.Size = new System.Drawing.Size(180, 6);
-      // 
-      // àproposdeToolStripMenuItem
-      // 
-      this.àproposdeToolStripMenuItem.Name = "àproposdeToolStripMenuItem";
-      this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(183, 26);
-      this.àproposdeToolStripMenuItem.Text = "À &propos de...";
       // 
       // actionsToolStripMenuItem
       // 
@@ -329,51 +183,59 @@ namespace FredSQLCompare
             this.refreshToolStripMenuItem,
             this.switchDeploymentDirectionToolStripMenuItem,
             this.filterSetupPaneToolStripMenuItem,
-            this.deploymentWizardToolStripMenuItem});
+            this.deploymentWizardToolStripMenuItem,
+            this.editParametersToolStripMenuItem});
       this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-      this.actionsToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+      this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
       this.actionsToolStripMenuItem.Text = "Actions";
       // 
       // includeAllToolStripMenuItem
       // 
       this.includeAllToolStripMenuItem.Name = "includeAllToolStripMenuItem";
-      this.includeAllToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.includeAllToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.includeAllToolStripMenuItem.Text = "Include all";
       // 
       // excludeAllToolStripMenuItem
       // 
       this.excludeAllToolStripMenuItem.Name = "excludeAllToolStripMenuItem";
-      this.excludeAllToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.excludeAllToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.excludeAllToolStripMenuItem.Text = "Exclude all";
       // 
       // toolStripSeparator6
       // 
       this.toolStripSeparator6.Name = "toolStripSeparator6";
-      this.toolStripSeparator6.Size = new System.Drawing.Size(283, 6);
+      this.toolStripSeparator6.Size = new System.Drawing.Size(225, 6);
       // 
       // refreshToolStripMenuItem
       // 
       this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.refreshToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.refreshToolStripMenuItem.Text = "Refresh comparison";
       // 
       // switchDeploymentDirectionToolStripMenuItem
       // 
       this.switchDeploymentDirectionToolStripMenuItem.Name = "switchDeploymentDirectionToolStripMenuItem";
-      this.switchDeploymentDirectionToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.switchDeploymentDirectionToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.switchDeploymentDirectionToolStripMenuItem.Text = "Switch Deployment Direction";
       // 
       // filterSetupPaneToolStripMenuItem
       // 
       this.filterSetupPaneToolStripMenuItem.Name = "filterSetupPaneToolStripMenuItem";
-      this.filterSetupPaneToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.filterSetupPaneToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.filterSetupPaneToolStripMenuItem.Text = "Filter Setup Pane";
       // 
       // deploymentWizardToolStripMenuItem
       // 
       this.deploymentWizardToolStripMenuItem.Name = "deploymentWizardToolStripMenuItem";
-      this.deploymentWizardToolStripMenuItem.Size = new System.Drawing.Size(286, 26);
+      this.deploymentWizardToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
       this.deploymentWizardToolStripMenuItem.Text = "Deployment Wizard";
+      // 
+      // editParametersToolStripMenuItem
+      // 
+      this.editParametersToolStripMenuItem.Name = "editParametersToolStripMenuItem";
+      this.editParametersToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+      this.editParametersToolStripMenuItem.Text = "Edit Parameters";
+      this.editParametersToolStripMenuItem.Click += new System.EventHandler(this.EditParametersToolStripMenuItem_Click);
       // 
       // toolsToolStripMenuItem
       // 
@@ -382,46 +244,88 @@ namespace FredSQLCompare
             this.projectOptionsToolStripMenuItem,
             this.applicationOptionsToolStripMenuItem});
       this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+      this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
       this.toolsToolStripMenuItem.Text = "Tools";
       // 
       // generateComparisonResultsReportToolStripMenuItem
       // 
       this.generateComparisonResultsReportToolStripMenuItem.Name = "generateComparisonResultsReportToolStripMenuItem";
-      this.generateComparisonResultsReportToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.generateComparisonResultsReportToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
       this.generateComparisonResultsReportToolStripMenuItem.Text = "Generate comparison results report";
       // 
       // projectOptionsToolStripMenuItem
       // 
       this.projectOptionsToolStripMenuItem.Name = "projectOptionsToolStripMenuItem";
-      this.projectOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.projectOptionsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
       this.projectOptionsToolStripMenuItem.Text = "Project options";
       // 
       // applicationOptionsToolStripMenuItem
       // 
       this.applicationOptionsToolStripMenuItem.Name = "applicationOptionsToolStripMenuItem";
-      this.applicationOptionsToolStripMenuItem.Size = new System.Drawing.Size(325, 26);
+      this.applicationOptionsToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
       this.applicationOptionsToolStripMenuItem.Text = "Application options";
+      // 
+      // aideToolStripMenuItem
+      // 
+      this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sommaireToolStripMenuItem,
+            this.indexToolStripMenuItem,
+            this.rechercherToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.àproposdeToolStripMenuItem});
+      this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
+      this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+      this.aideToolStripMenuItem.Text = "&Aide";
+      // 
+      // sommaireToolStripMenuItem
+      // 
+      this.sommaireToolStripMenuItem.Name = "sommaireToolStripMenuItem";
+      this.sommaireToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+      this.sommaireToolStripMenuItem.Text = "&Sommaire";
+      // 
+      // indexToolStripMenuItem
+      // 
+      this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+      this.indexToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+      this.indexToolStripMenuItem.Text = "&Index";
+      // 
+      // rechercherToolStripMenuItem
+      // 
+      this.rechercherToolStripMenuItem.Name = "rechercherToolStripMenuItem";
+      this.rechercherToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+      this.rechercherToolStripMenuItem.Text = "&Rechercher";
+      // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
+      // 
+      // àproposdeToolStripMenuItem
+      // 
+      this.àproposdeToolStripMenuItem.Name = "àproposdeToolStripMenuItem";
+      this.àproposdeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+      this.àproposdeToolStripMenuItem.Text = "À &propos de...";
       // 
       // tableLayoutPanelMain
       // 
       this.tableLayoutPanelMain.ColumnCount = 3;
       this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.46334F));
       this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.53666F));
-      this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 628F));
+      this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 473F));
       this.tableLayoutPanelMain.Controls.Add(this.labelSourceServerName, 0, 0);
       this.tableLayoutPanelMain.Controls.Add(this.labelTargetServerName, 2, 0);
       this.tableLayoutPanelMain.Controls.Add(this.buttonDeploy, 1, 0);
       this.tableLayoutPanelMain.Controls.Add(this.listViewMainDeployment, 0, 1);
       this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 30);
+      this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 24);
+      this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(2);
       this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
       this.tableLayoutPanelMain.RowCount = 4;
       this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.36717F));
       this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.63283F));
-      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-      this.tableLayoutPanelMain.Size = new System.Drawing.Size(1269, 632);
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+      this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+      this.tableLayoutPanelMain.Size = new System.Drawing.Size(952, 514);
       this.tableLayoutPanelMain.TabIndex = 1;
       this.tableLayoutPanelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutPanelMain_Paint);
       // 
@@ -430,11 +334,12 @@ namespace FredSQLCompare
       this.labelSourceServerName.AutoSize = true;
       this.labelSourceServerName.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelSourceServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelSourceServerName.Location = new System.Drawing.Point(3, 0);
+      this.labelSourceServerName.Location = new System.Drawing.Point(2, 0);
+      this.labelSourceServerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelSourceServerName.Name = "labelSourceServerName";
-      this.labelSourceServerName.Size = new System.Drawing.Size(529, 79);
+      this.labelSourceServerName.Size = new System.Drawing.Size(395, 64);
       this.labelSourceServerName.TabIndex = 0;
-      this.labelSourceServerName.Text = "Server Source name and SQL instance";
+      this.labelSourceServerName.Text = "Source Server name and SQL instance";
       // 
       // labelTargetServerName
       // 
@@ -442,20 +347,22 @@ namespace FredSQLCompare
       this.labelTargetServerName.BackColor = System.Drawing.SystemColors.ActiveCaption;
       this.labelTargetServerName.Dock = System.Windows.Forms.DockStyle.Fill;
       this.labelTargetServerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelTargetServerName.Location = new System.Drawing.Point(643, 0);
+      this.labelTargetServerName.Location = new System.Drawing.Point(480, 0);
+      this.labelTargetServerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
       this.labelTargetServerName.Name = "labelTargetServerName";
-      this.labelTargetServerName.Size = new System.Drawing.Size(623, 79);
+      this.labelTargetServerName.Size = new System.Drawing.Size(470, 64);
       this.labelTargetServerName.TabIndex = 1;
-      this.labelTargetServerName.Text = "Server Target name and SQL instance";
+      this.labelTargetServerName.Text = "Target Server name and SQL instance";
       // 
       // buttonDeploy
       // 
       this.buttonDeploy.BackColor = System.Drawing.SystemColors.HotTrack;
       this.buttonDeploy.Dock = System.Windows.Forms.DockStyle.Fill;
       this.buttonDeploy.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonDeploy.Location = new System.Drawing.Point(538, 3);
+      this.buttonDeploy.Location = new System.Drawing.Point(401, 2);
+      this.buttonDeploy.Margin = new System.Windows.Forms.Padding(2);
       this.buttonDeploy.Name = "buttonDeploy";
-      this.buttonDeploy.Size = new System.Drawing.Size(99, 73);
+      this.buttonDeploy.Size = new System.Drawing.Size(75, 60);
       this.buttonDeploy.TabIndex = 2;
       this.buttonDeploy.Text = "Deploy -->";
       this.buttonDeploy.UseVisualStyleBackColor = false;
@@ -466,20 +373,22 @@ namespace FredSQLCompare
       this.tableLayoutPanelMain.SetColumnSpan(this.listViewMainDeployment, 3);
       this.listViewMainDeployment.Dock = System.Windows.Forms.DockStyle.Fill;
       this.listViewMainDeployment.HideSelection = false;
-      this.listViewMainDeployment.Location = new System.Drawing.Point(3, 82);
+      this.listViewMainDeployment.Location = new System.Drawing.Point(2, 66);
+      this.listViewMainDeployment.Margin = new System.Windows.Forms.Padding(2);
       this.listViewMainDeployment.Name = "listViewMainDeployment";
-      this.listViewMainDeployment.Size = new System.Drawing.Size(1263, 506);
+      this.listViewMainDeployment.Size = new System.Drawing.Size(948, 413);
       this.listViewMainDeployment.TabIndex = 3;
       this.listViewMainDeployment.UseCompatibleStateImageBehavior = false;
       // 
       // FormMain
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(1269, 662);
+      this.ClientSize = new System.Drawing.Size(952, 538);
       this.Controls.Add(this.tableLayoutPanelMain);
       this.Controls.Add(this.menuStrip1);
       this.MainMenuStrip = this.menuStrip1;
+      this.Margin = new System.Windows.Forms.Padding(2);
       this.Name = "FormMain";
       this.Text = "Fred SQL Compare";
       this.Load += new System.EventHandler(this.FormMain_Load);
@@ -506,18 +415,6 @@ namespace FredSQLCompare
     private System.Windows.Forms.ToolStripMenuItem aperçuavantimpressionToolStripMenuItem;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem editionToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem annulerToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem rétablirToolStripMenuItem;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-    private System.Windows.Forms.ToolStripMenuItem couperToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem copierToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem collerToolStripMenuItem;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-    private System.Windows.Forms.ToolStripMenuItem sélectionnertoutToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem outilsToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem personnaliserToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem aideToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem sommaireToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
@@ -541,6 +438,7 @@ namespace FredSQLCompare
     private System.Windows.Forms.Label labelTargetServerName;
     private System.Windows.Forms.Button buttonDeploy;
     private System.Windows.Forms.ListView listViewMainDeployment;
+    private System.Windows.Forms.ToolStripMenuItem editParametersToolStripMenuItem;
   }
 }
 

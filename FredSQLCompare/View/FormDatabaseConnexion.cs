@@ -1,6 +1,7 @@
 ﻿using FredSQLCompare.DAL;
 using FredSQLCompare.Model;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
 using static FredSQLCompare.Utile.Enumerations;
@@ -105,18 +106,13 @@ namespace FredSQLCompare.View
         return;
       }
 
-      //SqlDataReader queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
+      List<string> listOfDatabaseName = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, "master", Dns.GetHostName());
+
       comboBoxSourceDatabase.Items.Clear();
-      //foreach (var item in DALHelper.DataReaderMapToList<string>(queryResult))
-      //{
-      //  comboBoxSourceDatabase.Items.Add(item.ToString());
-      //}
-
-      //foreach (var item in DALHelper.GetData("", null, "master", Dns.GetHostName(), sqlQuery))
-      //{
-      //  comboBoxSourceDatabase.Items.Add(item.ToString());
-      //}
-
+      foreach (string name in listOfDatabaseName)
+      {
+        comboBoxSourceDatabase.Items.Add(name);
+      }
     }
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)
@@ -129,12 +125,13 @@ namespace FredSQLCompare.View
     private void ButtonCompareSave_Click(object sender, EventArgs e)
     {
       // saving parameters
+      // if scp file doesn't exist, then create a new file.
 
     }
 
     private void ButtonCompareSaveAs_Click(object sender, EventArgs e)
     {
-      // saving parameters as ...
+      // saving parameters as ... SCP XML file
 
     }
 

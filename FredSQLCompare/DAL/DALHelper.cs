@@ -90,6 +90,13 @@ namespace FredSQLCompare.DAL
       return result;
     }
 
+    /// <summary>
+    /// Execute an SQL query.
+    /// </summary>
+    /// <param name="sqlQuery">The SQL query to be run.</param>
+    /// <param name="databaseName">The name of the database.</param>
+    /// <param name="sqlServerName">The name of the SQL server.</param>
+    /// <returns>An SQL data reader type.</returns>
     public static SqlDataReader ExecuteSqlQueryManyResults(string sqlQuery, string databaseName, string sqlServerName)
     {
       SqlDataReader result = null;
@@ -116,6 +123,55 @@ namespace FredSQLCompare.DAL
         catch (Exception)
         {
           //MessageBox.show(exception.Message);
+        }
+        finally
+        {
+          connection.Close();
+        }
+      }
+
+      return result;
+    }
+
+    /// <summary>
+    /// Execute an SQL query.
+    /// </summary>
+    /// <param name="sqlQuery">The SQL query to be run.</param>
+    /// <param name="databaseName">The name of the database.</param>
+    /// <param name="sqlServerName">The name of the SQL server.</param>
+    /// <returns>An SQL data reader type.</returns>
+    public static List<string> ExecuteSqlQueryToListOfStrings(string sqlQuery, string databaseName, string sqlServerName)
+    {
+      List<string> result = new List<string>();
+      string connectionString = GetConnexionString(databaseName, sqlServerName);
+      // query = "SELECT * FROM tableName";
+      string query = sqlQuery;
+
+      using (SqlConnection connection = new SqlConnection(connectionString))
+      {
+        SqlCommand command = new SqlCommand(query, connection);
+        try
+        {
+          connection.Open();
+          SqlDataReader queryResult = command.ExecuteReader();
+          if (queryResult == null)
+          {
+            result = new List<string>();
+          }
+          else
+          {
+            if (queryResult.HasRows)
+            {
+              while (queryResult.Read())
+              {
+                result.Add($"{queryResult.GetString(0)}");
+              }
+            }
+          }
+        }
+        catch (Exception)
+        {
+          result = new List<string>();
         }
         finally
         {
