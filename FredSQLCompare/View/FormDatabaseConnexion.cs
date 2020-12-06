@@ -220,11 +220,14 @@ namespace FredSQLCompare.View
       }
 
       // verify both db connexion
-      if (!DALHelper.VerifyDatabaseConnexion("select * from "))
-      {
+      //if (!DALHelper.VerifyDatabaseConnexion("select * from table à identifier", comboBoxSourceDatabase.SelectedItem.ToString(), comboBoxServerSource.SelectedItem.ToString()))
+      //{
 
-      }
+      //}
 
+
+      // close the win form
+      Close();
     }
 
     private void RecordParameters()
