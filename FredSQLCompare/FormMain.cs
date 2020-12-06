@@ -1,4 +1,5 @@
-﻿using FredSQLCompare.Properties;
+﻿using FredSQLCompare.Model;
+using FredSQLCompare.Properties;
 using FredSQLCompare.View;
 using System;
 using System.Diagnostics;
@@ -13,6 +14,9 @@ namespace FredSQLCompare
     {
       InitializeComponent();
     }
+
+    public SqlObjects sqlObjectSource = new SqlObjects();
+    public SqlObjects sqlObjectTarget = new SqlObjects();
 
     private void FormMain_Load(object sender, EventArgs e)
     {

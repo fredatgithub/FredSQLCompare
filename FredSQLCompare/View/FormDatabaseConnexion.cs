@@ -225,6 +225,8 @@ namespace FredSQLCompare.View
 
       //}
 
+      //how to pass info to FormMain?
+      //FormMain.sqlObjectSource.
 
       // close the win form
       Close();
