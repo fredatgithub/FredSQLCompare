@@ -13,6 +13,43 @@ namespace FredSQLCompare.DAL
       return $"Data Source={sqlServerName};Initial Catalog={databaseName};Integrated Security=True";
     }
 
+    public static bool VerifyDatabaseConnexion(string sqlQuery, string databaseName, string sqlServerName)
+    {
+      bool result = false;
+      string connectionString = GetConnexionString(databaseName, sqlServerName);
+      // query = "SELECT TOP(1) Date FROM tableName order by date DESC";
+      string query = sqlQuery;
+
+      using (SqlConnection connection = new SqlConnection(connectionString))
+      {
+        SqlCommand command = new SqlCommand(query, connection);
+        try
+        {
+          connection.Open();
+          var queryResult = command.ExecuteScalar();
+          if (queryResult == null)
+          {
+            result = false;
+          }
+          else
+          {
+            result = true;
+          }
+        }
+        catch (Exception exception)
+        {
+          //Console.WriteLine(exception.Message);
+          result = false;
+        }
+        finally
+        {
+          connection.Close();
+        }
+      }
+
+      return result;
+    }
+
     public static string ExecuteSqlQueryOneResult(string sqlQuery, string databaseName, string sqlServerName)
     {
       string result = string.Empty;
