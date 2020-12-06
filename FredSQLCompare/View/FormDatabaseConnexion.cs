@@ -1,7 +1,6 @@
 ﻿using FredSQLCompare.DAL;
 using FredSQLCompare.Model;
 using System;
-using System.Data.SqlClient;
 using System.Net;
 using System.Windows.Forms;
 using static FredSQLCompare.Utile.Enumerations;
@@ -24,10 +23,27 @@ namespace FredSQLCompare.View
     {
       comboBoxSourceDatabaseSource.Items.Clear();
       comboBoxSourceDatabaseSource.Items.Add("Database");
+      comboBoxSourceDatabaseSource.Items.Add("Backup");
+      comboBoxSourceDatabaseSource.Items.Add("Snapshot");
+      comboBoxSourceDatabaseSource.Items.Add("Scripts folder");
+      comboBoxSourceDatabaseSource.Items.Add("SQL Source Control");
+      comboBoxSourceDatabaseSource.Items.Add("SQL Change Automation");
+      comboBoxSourceDatabaseSource.SelectedIndex = Properties.Settings.Default.comboBoxSourceDatabaseSource;
 
-      comboBoxServerSource.Items.Clear();
-      comboBoxServerSource.Items.Add("DESKTOP-MSI");
+      comboBoxTargetDatabaseTarget.Items.Clear();
+      comboBoxTargetDatabaseTarget.Items.Add("Database");
+      comboBoxTargetDatabaseTarget.Items.Add("Backup");
+      comboBoxTargetDatabaseTarget.Items.Add("Snapshot");
+      comboBoxTargetDatabaseTarget.Items.Add("Scripts folder");
+      comboBoxTargetDatabaseTarget.Items.Add("SQL Source Control");
+      comboBoxTargetDatabaseTarget.Items.Add("SQL Change Automation");
+      comboBoxTargetDatabaseTarget.SelectedIndex = Properties.Settings.Default.comboBoxTargetDatabaseTarget;
+
       // should read XML file TODO
+      comboBoxServerSource.Items.Clear();
+      comboBoxServerSource.Items.Add($"{Dns.GetHostName()}");
+      comboBoxTargetSource.Items.Clear();
+      comboBoxTargetSource.Items.Add($"{Dns.GetHostName()}");
 
       comboBoxSourceAuthentication.Items.Clear();
       comboBoxSourceAuthentication.Items.Add("Authentication Windows");
@@ -49,6 +65,9 @@ namespace FredSQLCompare.View
       checkBoxTargetRememberCredentials.Checked = Properties.Settings.Default.CheckBoxTargetRememberCredentials;
       textBoxTargetName.Text = Properties.Settings.Default.textBoxTargetName;
       textBoxSourceName.Text = Properties.Settings.Default.textBoxSourceName;
+      comboBoxServerSource.SelectedIndex = Properties.Settings.Default.comboBoxServerSource;
+      comboBoxTargetSource.SelectedIndex = Properties.Settings.Default.comboBoxTargetSource;
+
     }
 
     private void ButtonSourceCreate_Click(object sender, EventArgs e)
@@ -80,17 +99,23 @@ namespace FredSQLCompare.View
       string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
       //string sqlQuery = "select name from sys.databases";
       string hostName = Dns.GetHostName();
-      SqlDataReader queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        return;
+      }
+
+      //SqlDataReader queryResult = DALHelper.ExecuteSqlQueryManyResults(sqlQuery, dbConnexion.DatabaseName, hostName);
       comboBoxSourceDatabase.Items.Clear();
       //foreach (var item in DALHelper.DataReaderMapToList<string>(queryResult))
       //{
       //  comboBoxSourceDatabase.Items.Add(item.ToString());
       //}
 
-      foreach (var item in DALHelper.GetData("", null, "master", Dns.GetHostName(), sqlQuery))
-      {
-        comboBoxSourceDatabase.Items.Add(item.ToString());
-      }
+      //foreach (var item in DALHelper.GetData("", null, "master", Dns.GetHostName(), sqlQuery))
+      //{
+      //  comboBoxSourceDatabase.Items.Add(item.ToString());
+      //}
 
     }
 
@@ -178,6 +203,18 @@ namespace FredSQLCompare.View
         return;
       }
 
+      // comboBoxServerSource
+      if (comboBoxServerSource.SelectedIndex != -1)
+      {
+        Properties.Settings.Default.comboBoxServerSource = comboBoxServerSource.SelectedIndex;
+      }
+
+      // comboBoxTargetSource
+      if (comboBoxTargetSource.SelectedIndex != -1)
+      {
+        Properties.Settings.Default.comboBoxTargetSource = comboBoxTargetSource.SelectedIndex;
+      }
+
       //saving controls state
       Properties.Settings.Default.ComboBoxSourceAuthenticationIndex = comboBoxSourceAuthentication.SelectedIndex;
       Properties.Settings.Default.ComboBoxTargetAuthenticationIndex = comboBoxTargetAuthentication.SelectedIndex;
@@ -186,6 +223,9 @@ namespace FredSQLCompare.View
 
       Properties.Settings.Default.textBoxTargetName = textBoxTargetName.Text;
       Properties.Settings.Default.textBoxSourceName = textBoxSourceName.Text;
+
+      Properties.Settings.Default.comboBoxSourceDatabaseSource = comboBoxSourceDatabaseSource.SelectedIndex;
+      Properties.Settings.Default.comboBoxTargetDatabaseTarget = comboBoxTargetDatabaseTarget.SelectedIndex;
 
       Properties.Settings.Default.Save();
     }

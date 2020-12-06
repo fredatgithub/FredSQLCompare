@@ -36,9 +36,8 @@ namespace FredSQLCompare.DAL
             result = true;
           }
         }
-        catch (Exception exception)
+        catch (Exception)
         {
-          //Console.WriteLine(exception.Message);
           result = false;
         }
         finally

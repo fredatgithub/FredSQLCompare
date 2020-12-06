@@ -142,5 +142,53 @@ namespace FredSQLCompare.Properties {
                 this["textBoxTargetName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int comboBoxServerSource {
+            get {
+                return ((int)(this["comboBoxServerSource"]));
+            }
+            set {
+                this["comboBoxServerSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int comboBoxTargetSource {
+            get {
+                return ((int)(this["comboBoxTargetSource"]));
+            }
+            set {
+                this["comboBoxTargetSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int comboBoxSourceDatabaseSource {
+            get {
+                return ((int)(this["comboBoxSourceDatabaseSource"]));
+            }
+            set {
+                this["comboBoxSourceDatabaseSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        public int comboBoxTargetDatabaseTarget {
+            get {
+                return ((int)(this["comboBoxTargetDatabaseTarget"]));
+            }
+            set {
+                this["comboBoxTargetDatabaseTarget"] = value;
+            }
+        }
     }
 }
