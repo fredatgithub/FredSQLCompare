@@ -50,7 +50,7 @@ namespace FredSQLCompare.View
       this.comboBoxTargetAuthentication = new System.Windows.Forms.ComboBox();
       this.labelTargetAuthentication = new System.Windows.Forms.Label();
       this.labelTargetServer = new System.Windows.Forms.Label();
-      this.comboBoxTargetSource = new System.Windows.Forms.ComboBox();
+      this.comboBoxServerTarget = new System.Windows.Forms.ComboBox();
       this.labelTargetOperation = new System.Windows.Forms.Label();
       this.comboBoxTargetDatabaseTarget = new System.Windows.Forms.ComboBox();
       this.buttonSourceCreate = new System.Windows.Forms.Button();
@@ -110,7 +110,7 @@ namespace FredSQLCompare.View
       this.tabPageDataSources.Controls.Add(this.comboBoxTargetAuthentication);
       this.tabPageDataSources.Controls.Add(this.labelTargetAuthentication);
       this.tabPageDataSources.Controls.Add(this.labelTargetServer);
-      this.tabPageDataSources.Controls.Add(this.comboBoxTargetSource);
+      this.tabPageDataSources.Controls.Add(this.comboBoxServerTarget);
       this.tabPageDataSources.Controls.Add(this.labelTargetOperation);
       this.tabPageDataSources.Controls.Add(this.comboBoxTargetDatabaseTarget);
       this.tabPageDataSources.Controls.Add(this.buttonSourceCreate);
@@ -341,15 +341,15 @@ namespace FredSQLCompare.View
       this.labelTargetServer.TabIndex = 19;
       this.labelTargetServer.Text = "SQL Server";
       // 
-      // comboBoxTargetSource
+      // comboBoxServerTarget
       // 
-      this.comboBoxTargetSource.FormattingEnabled = true;
-      this.comboBoxTargetSource.Location = new System.Drawing.Point(400, 118);
-      this.comboBoxTargetSource.Margin = new System.Windows.Forms.Padding(2);
-      this.comboBoxTargetSource.Name = "comboBoxTargetSource";
-      this.comboBoxTargetSource.Size = new System.Drawing.Size(276, 21);
-      this.comboBoxTargetSource.TabIndex = 18;
-      this.comboBoxTargetSource.Text = "Server";
+      this.comboBoxServerTarget.FormattingEnabled = true;
+      this.comboBoxServerTarget.Location = new System.Drawing.Point(400, 118);
+      this.comboBoxServerTarget.Margin = new System.Windows.Forms.Padding(2);
+      this.comboBoxServerTarget.Name = "comboBoxServerTarget";
+      this.comboBoxServerTarget.Size = new System.Drawing.Size(276, 21);
+      this.comboBoxServerTarget.TabIndex = 18;
+      this.comboBoxServerTarget.Text = "Server";
       // 
       // labelTargetOperation
       // 
@@ -608,7 +608,7 @@ namespace FredSQLCompare.View
     private System.Windows.Forms.ComboBox comboBoxTargetAuthentication;
     private System.Windows.Forms.Label labelTargetAuthentication;
     private System.Windows.Forms.Label labelTargetServer;
-    private System.Windows.Forms.ComboBox comboBoxTargetSource;
+    private System.Windows.Forms.ComboBox comboBoxServerTarget;
     private System.Windows.Forms.Label labelTargetOperation;
     private System.Windows.Forms.ComboBox comboBoxTargetDatabaseTarget;
     private System.Windows.Forms.Button buttonCompareCompareNowCancel;

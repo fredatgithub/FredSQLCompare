@@ -1,5 +1,5 @@
 ﻿using System;
-using static FredSQLCompare.Utile.Enumerations;
+using static FredSQLCompare.Utilities.Enumerations;
 
 namespace FredSQLCompare.Model
 {

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Windows.Forms;
-using static FredSQLCompare.Utile.Enumerations;
+using static FredSQLCompare.Utilities.Enumerations;
 
 namespace FredSQLCompare.View
 {
@@ -43,8 +43,8 @@ namespace FredSQLCompare.View
       // should read XML file TODO
       comboBoxServerSource.Items.Clear();
       comboBoxServerSource.Items.Add($"{Dns.GetHostName()}");
-      comboBoxTargetSource.Items.Clear();
-      comboBoxTargetSource.Items.Add($"{Dns.GetHostName()}");
+      comboBoxServerTarget.Items.Clear();
+      comboBoxServerTarget.Items.Add($"{Dns.GetHostName()}");
 
       comboBoxSourceAuthentication.Items.Clear();
       comboBoxSourceAuthentication.Items.Add("Authentication Windows");
@@ -67,7 +67,7 @@ namespace FredSQLCompare.View
       textBoxTargetName.Text = Properties.Settings.Default.textBoxTargetName;
       textBoxSourceName.Text = Properties.Settings.Default.textBoxSourceName;
       comboBoxServerSource.SelectedIndex = Properties.Settings.Default.comboBoxServerSource;
-      comboBoxTargetSource.SelectedIndex = Properties.Settings.Default.comboBoxTargetSource;
+      comboBoxServerTarget.SelectedIndex = Properties.Settings.Default.comboBoxTargetSource;
 
       comboBoxSourceDatabase.Items.Clear();
       foreach (string item in Properties.Settings.Default.comboBoxSourceDatabase.Split(';'))
@@ -98,8 +98,6 @@ namespace FredSQLCompare.View
     private void ButtonSourceRefresh_Click(object sender, EventArgs e)
     {
       // refresh the list of source database combobox
-      // use of GetAllDatabaseNamesRequest() method
-      string request = Connexions.GetAllDatabaseNamesRequest();
       DatabaseAuthentication dbConnexion = new DatabaseAuthentication
       {
         UserName = textBoxSourceName.Text,
@@ -111,7 +109,6 @@ namespace FredSQLCompare.View
       RecordParameters();
       string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
       //string sqlQuery = "select name from sys.databases";
-      string hostName = Dns.GetHostName();
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
       {
         MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
@@ -129,9 +126,30 @@ namespace FredSQLCompare.View
 
     private void ButtonTargetRefresh_Click(object sender, EventArgs e)
     {
-      // refresh the list of source database combobox
-      // get all databases for the db connexion parameters entered
+      // refresh the list of target database combobox
+      DatabaseAuthentication dbConnexion = new DatabaseAuthentication
+      {
+        UserName = textBoxTargetName.Text,
+        UserPassword = textBoxTargetPassword.Text,
+        ServerName = comboBoxServerTarget.SelectedItem.ToString(),
+        DatabaseName = "master"
+      };
 
+      RecordParameters();
+      string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        return;
+      }
+
+      List<string> listOfDatabaseName = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, "master", Dns.GetHostName());
+
+      comboBoxTargetDatabase.Items.Clear();
+      foreach (string name in listOfDatabaseName)
+      {
+        comboBoxTargetDatabase.Items.Add(name);
+      }
     }
 
     private void ButtonCompareSave_Click(object sender, EventArgs e)
@@ -196,10 +214,10 @@ namespace FredSQLCompare.View
         return;
       }
 
-      if (comboBoxTargetSource.SelectedIndex == -1)
+      if (comboBoxServerTarget.SelectedIndex == -1)
       {
         MessageBox.Show("You have to choose a target SQL server");
-        comboBoxTargetSource.Focus();
+        comboBoxServerTarget.Focus();
         return;
       }
 
@@ -228,6 +246,36 @@ namespace FredSQLCompare.View
       //how to pass info to FormMain?
       //write a file (txt or XML)
       // all table source
+      DatabaseAuthentication dbConnexion = new DatabaseAuthentication
+      {
+        UserName = textBoxSourceName.Text,
+        UserPassword = textBoxSourcePassword.Text,
+        ServerName = comboBoxServerSource.SelectedItem.ToString(),
+        DatabaseName = comboBoxSourceDatabase.SelectedItem.ToString()
+      };
+
+      string sqlQuery = Connexions.GetAllTableNamesRequest();
+
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        return;
+      }
+
+      List<string> listOfTableName = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexion.DatabaseName, Dns.GetHostName());
+
+      List<string> listOfTableNameSource = new List<string>();
+      foreach (string name in listOfTableName)
+      {
+        listOfTableNameSource.Add(name);
+      }
+
+      // write to file. TODO
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameSource, listOfTableNameSource))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all table source to the file: {Properties.Settings.Default.listOfTableNameSource}");
+      }
+
 
       // close the win form
       Close();
@@ -260,9 +308,9 @@ namespace FredSQLCompare.View
       }
 
       // comboBoxTargetSource
-      if (comboBoxTargetSource.SelectedIndex != -1)
+      if (comboBoxServerTarget.SelectedIndex != -1)
       {
-        Properties.Settings.Default.comboBoxTargetSource = comboBoxTargetSource.SelectedIndex;
+        Properties.Settings.Default.comboBoxTargetSource = comboBoxServerTarget.SelectedIndex;
       }
 
       //saving controls state

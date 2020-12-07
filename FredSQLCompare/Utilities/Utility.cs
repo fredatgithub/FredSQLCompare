@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
-namespace FredSQLCompare.Utile
+namespace FredSQLCompare.Utilities
 {
   public static class Utility
   {
@@ -73,6 +75,29 @@ namespace FredSQLCompare.Utile
         { "ActiveDirectoryInteractiveAuthenticationAzure", "Active Directory Interactive Authentication Azure" },
         { "ActiveDirectoryPasswordAuthenticationAzure", "Active Directory Password Authentication Azure" }
       };
+
+      return result;
+    }
+
+    public static bool WriteTextFile(string fileName, List<string> collection)
+    {
+      bool result = false;
+      try
+      {
+        using (StreamWriter streamWriter = new StreamWriter(fileName))
+        {
+          foreach (string item in collection)
+          {
+            streamWriter.WriteLine(item);
+          }
+
+          result = true;
+        }
+      }
+      catch (Exception)
+      {
+        result = false;
+      }
 
       return result;
     }

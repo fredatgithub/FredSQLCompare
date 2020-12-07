@@ -214,5 +214,17 @@ namespace FredSQLCompare.Properties {
                 this["comboBoxTargetDatabase"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("listOfTableNameSource.txt")]
+        public string listOfTableNameSource {
+            get {
+                return ((string)(this["listOfTableNameSource"]));
+            }
+            set {
+                this["listOfTableNameSource"] = value;
+            }
+        }
     }
 }

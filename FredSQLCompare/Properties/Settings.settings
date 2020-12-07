@@ -50,5 +50,8 @@
     <Setting Name="comboBoxTargetDatabase" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="listOfTableNameSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">listOfTableNameSource.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

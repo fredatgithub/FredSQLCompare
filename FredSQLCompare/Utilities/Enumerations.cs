@@ -1,4 +1,4 @@
-﻿namespace FredSQLCompare.Utile
+﻿namespace FredSQLCompare.Utilities
 {
   public static class Enumerations
   {
