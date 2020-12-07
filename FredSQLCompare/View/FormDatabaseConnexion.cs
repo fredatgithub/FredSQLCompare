@@ -273,7 +273,7 @@ namespace FredSQLCompare.View
       // write to file. TODO
       if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameSource, listOfTableNameSource))
       {
-        MessageBox.Show($"Something went wrong when trying to write all table source to the file: {Properties.Settings.Default.listOfTableNameSource}");
+        MessageBox.Show($"Something went wrong when trying to write all source table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
       }
 
 
