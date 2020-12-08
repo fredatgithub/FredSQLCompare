@@ -255,7 +255,7 @@ namespace FredSQLCompare.View
       }
 
       List<string> listOfTableNameSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
-      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameSource))
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameSource, listOfTableNameSource))
       {
         MessageBox.Show($"Something went wrong when trying to write all source table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
       }
