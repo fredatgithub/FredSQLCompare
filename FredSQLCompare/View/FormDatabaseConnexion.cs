@@ -237,15 +237,7 @@ namespace FredSQLCompare.View
         return;
       }
 
-      // verify both db connexion
-      //if (!DALHelper.VerifyDatabaseConnexion("select * from table à identifier", comboBoxSourceDatabase.SelectedItem.ToString(), comboBoxServerSource.SelectedItem.ToString()))
-      //{
-
-      //}
-
-      //how to pass info to FormMain?
-      //write a file (txt or XML)
-      // all table source
+      // verify source db connexion
       DatabaseAuthentication dbConnexion = new DatabaseAuthentication
       {
         UserName = textBoxSourceName.Text,
@@ -262,6 +254,26 @@ namespace FredSQLCompare.View
         return;
       }
 
+      // verify target db connexion
+      dbConnexion = new DatabaseAuthentication
+      {
+        UserName = textBoxTargetName.Text,
+        UserPassword = textBoxTargetPassword.Text,
+        ServerName = comboBoxServerTarget.SelectedItem.ToString(),
+        DatabaseName = comboBoxTargetDatabase.SelectedItem.ToString()
+      };
+
+      sqlQuery = Connexions.GetAllTableNamesRequest();
+      // verify both db connexions
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        return;
+      }
+
+      //how to pass info to FormMain?
+      //write a file (txt or XML)
+      // all table source
       List<string> listOfTableName = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexion.DatabaseName, Dns.GetHostName());
 
       List<string> listOfTableNameSource = new List<string>();
