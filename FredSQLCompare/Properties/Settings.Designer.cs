@@ -226,5 +226,17 @@ namespace FredSQLCompare.Properties {
                 this["listOfTableNameSource"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("listOfTableNameTarget.txt")]
+        public string listOfTableNameTarget {
+            get {
+                return ((string)(this["listOfTableNameTarget"]));
+            }
+            set {
+                this["listOfTableNameTarget"] = value;
+            }
+        }
     }
 }

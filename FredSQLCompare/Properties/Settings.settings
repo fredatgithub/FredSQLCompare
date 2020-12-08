@@ -53,5 +53,8 @@
     <Setting Name="listOfTableNameSource" Type="System.String" Scope="User">
       <Value Profile="(Default)">listOfTableNameSource.txt</Value>
     </Setting>
+    <Setting Name="listOfTableNameTarget" Type="System.String" Scope="User">
+      <Value Profile="(Default)">listOfTableNameTarget.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

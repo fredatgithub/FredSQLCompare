@@ -238,7 +238,7 @@ namespace FredSQLCompare.View
       }
 
       // verify source db connexion
-      DatabaseAuthentication dbConnexion = new DatabaseAuthentication
+      DatabaseAuthentication dbConnexionSource = new DatabaseAuthentication
       {
         UserName = textBoxSourceName.Text,
         UserPassword = textBoxSourcePassword.Text,
@@ -248,14 +248,20 @@ namespace FredSQLCompare.View
 
       string sqlQuery = Connexions.GetAllTableNamesRequest();
 
-      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
       {
-        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionSource.DatabaseName} on the server: {dbConnexionSource.ServerName}");
         return;
       }
 
+      List<string> listOfTableNameSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameSource))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all source table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
+      }
+
       // verify target db connexion
-      dbConnexion = new DatabaseAuthentication
+      DatabaseAuthentication dbConnexionTarget = new DatabaseAuthentication
       {
         UserName = textBoxTargetName.Text,
         UserPassword = textBoxTargetPassword.Text,
@@ -264,30 +270,19 @@ namespace FredSQLCompare.View
       };
 
       sqlQuery = Connexions.GetAllTableNamesRequest();
-      // verify both db connexions
-      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
+      // verify db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
       {
-        MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionTarget.DatabaseName} on the server: {dbConnexionTarget.ServerName}");
         return;
       }
 
-      //how to pass info to FormMain?
-      //write a file (txt or XML)
-      // all table source
-      List<string> listOfTableName = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexion.DatabaseName, Dns.GetHostName());
-
-      List<string> listOfTableNameSource = new List<string>();
-      foreach (string name in listOfTableName)
+      // write to file. 
+      List<string> listOfTableNameTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameTarget))
       {
-        listOfTableNameSource.Add(name);
+        MessageBox.Show($"Something went wrong when trying to write all target table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
       }
-
-      // write to file. TODO
-      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameSource, listOfTableNameSource))
-      {
-        MessageBox.Show($"Something went wrong when trying to write all source table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
-      }
-
 
       // close the win form
       Close();
