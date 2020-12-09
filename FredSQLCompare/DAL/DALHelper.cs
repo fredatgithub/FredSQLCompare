@@ -29,7 +29,7 @@ namespace FredSQLCompare.DAL
           var queryResult = command.ExecuteScalar();
           if (queryResult == null)
           {
-            result = false;
+            result = true; // if no result then connexion is ok
           }
           else
           {

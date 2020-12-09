@@ -248,6 +248,7 @@ namespace FredSQLCompare.View
 
       string sqlQuery = Connexions.GetAllTableNamesRequest();
 
+      // verify target db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
       {
         MessageBox.Show($"Cannot connect to the database: {dbConnexionSource.DatabaseName} on the server: {dbConnexionSource.ServerName}");
@@ -260,7 +261,6 @@ namespace FredSQLCompare.View
         MessageBox.Show($"Something went wrong when trying to write all source table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
       }
 
-      // verify target db connexion
       DatabaseAuthentication dbConnexionTarget = new DatabaseAuthentication
       {
         UserName = textBoxTargetName.Text,
@@ -277,13 +277,28 @@ namespace FredSQLCompare.View
         return;
       }
 
-      // write to file. 
+      // write to file target table names. 
       List<string> listOfTableNameTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
       if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameTarget))
       {
         MessageBox.Show($"Something went wrong when trying to write all target table names to the file: {Properties.Settings.Default.listOfTableNameSource}");
       }
 
+      // get GetAllStoredProcedureRequest
+      sqlQuery = Connexions.GetAllStoredProcedureRequest();
+      // verify db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionTarget.DatabaseName} on the server: {dbConnexionTarget.ServerName}");
+        return;
+      }
+
+      // write to file target table names. 
+      List<string> listOfTableSPTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameTarget))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all Target Stored procedures names to the file: {Properties.Settings.Default.listOfTableNameSource}");
+      }
       // close the win form
       Close();
     }
@@ -392,6 +407,11 @@ namespace FredSQLCompare.View
         MessageBox.Show("Password cannot be emptied");
         return;
       }
+    }
+
+    private void ButtonCopyPasswordSourceToTarget_Click(object sender, EventArgs e)
+    {
+      textBoxTargetPassword.Text = textBoxSourcePassword.Text;
     }
   }
 }

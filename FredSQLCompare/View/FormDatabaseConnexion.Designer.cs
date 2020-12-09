@@ -31,6 +31,7 @@ namespace FredSQLCompare.View
     {
       this.tabControlDatabaseConnexion = new System.Windows.Forms.TabControl();
       this.tabPageDataSources = new System.Windows.Forms.TabPage();
+      this.buttonCopyPassword = new System.Windows.Forms.Button();
       this.buttonCompareCompareNowCancel = new System.Windows.Forms.Button();
       this.buttonCompareCompareNow = new System.Windows.Forms.Button();
       this.buttonCompareToLeftArrow = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@ namespace FredSQLCompare.View
       // 
       // tabPageDataSources
       // 
+      this.tabPageDataSources.Controls.Add(this.buttonCopyPassword);
       this.tabPageDataSources.Controls.Add(this.buttonCompareCompareNowCancel);
       this.tabPageDataSources.Controls.Add(this.buttonCompareCompareNow);
       this.tabPageDataSources.Controls.Add(this.buttonCompareToLeftArrow);
@@ -137,6 +139,17 @@ namespace FredSQLCompare.View
       this.tabPageDataSources.Text = "Data Sources";
       this.tabPageDataSources.UseVisualStyleBackColor = true;
       this.tabPageDataSources.Click += new System.EventHandler(this.TabPageDataSources_Click);
+      // 
+      // buttonCopyPassword
+      // 
+      this.buttonCopyPassword.Location = new System.Drawing.Point(349, 209);
+      this.buttonCopyPassword.Margin = new System.Windows.Forms.Padding(2);
+      this.buttonCopyPassword.Name = "buttonCopyPassword";
+      this.buttonCopyPassword.Size = new System.Drawing.Size(34, 22);
+      this.buttonCopyPassword.TabIndex = 38;
+      this.buttonCopyPassword.Text = "-->";
+      this.buttonCopyPassword.UseVisualStyleBackColor = true;
+      this.buttonCopyPassword.Click += new System.EventHandler(this.ButtonCopyPasswordSourceToTarget_Click);
       // 
       // buttonCompareCompareNowCancel
       // 
@@ -618,5 +631,6 @@ namespace FredSQLCompare.View
     private System.Windows.Forms.Button buttonCompareToRightArrow;
     private System.Windows.Forms.Button buttonCompareSaveAs;
     private System.Windows.Forms.Button buttonCompareSave;
+    private System.Windows.Forms.Button buttonCopyPassword;
   }
 }
