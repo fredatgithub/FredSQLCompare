@@ -238,5 +238,29 @@ namespace FredSQLCompare.Properties {
                 this["listOfTableNameTarget"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("listOfStoredProcedureNameSource.txt")]
+        public string listOfStoredProcedureNameSource {
+            get {
+                return ((string)(this["listOfStoredProcedureNameSource"]));
+            }
+            set {
+                this["listOfStoredProcedureNameSource"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("listOfStoredProcedureNameSource.txt")]
+        public string listOfStoredProcedureNameTarget {
+            get {
+                return ((string)(this["listOfStoredProcedureNameTarget"]));
+            }
+            set {
+                this["listOfStoredProcedureNameTarget"] = value;
+            }
+        }
     }
 }

@@ -294,11 +294,28 @@ namespace FredSQLCompare.View
       }
 
       // write to file target table names. 
-      List<string> listOfTableSPTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
-      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfTableNameTarget, listOfTableNameTarget))
+      List<string> listOfSPTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfStoredProcedureNameTarget, listOfSPTarget))
       {
-        MessageBox.Show($"Something went wrong when trying to write all Target Stored procedures names to the file: {Properties.Settings.Default.listOfTableNameSource}");
+        MessageBox.Show($"Something went wrong when trying to write all Target Stored procedures names to the file: {Properties.Settings.Default.listOfStoredProcedureNameTarget}");
       }
+
+      // get GetAllStoredProcedureRequest
+      sqlQuery = Connexions.GetAllStoredProcedureRequest();
+      // verify db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionSource.DatabaseName} on the server: {dbConnexionSource.ServerName}");
+        return;
+      }
+
+      // write to file source SP names. 
+      List<string> listOfSPSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfStoredProcedureNameSource, listOfSPSource))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all Source Stored procedures names to the file: {Properties.Settings.Default.listOfStoredProcedureNameSource}");
+      }
+
       // close the win form
       Close();
     }
