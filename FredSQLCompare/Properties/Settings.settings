@@ -62,5 +62,11 @@
     <Setting Name="listOfStoredProcedureNameTarget" Type="System.String" Scope="User">
       <Value Profile="(Default)">listOfStoredProcedureNameSource.txt</Value>
     </Setting>
+    <Setting Name="listOfFunctionNameSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">listOfFunctionNameSource.txt</Value>
+    </Setting>
+    <Setting Name="listOfFunctionNameTarget" Type="System.String" Scope="User">
+      <Value Profile="(Default)">listOfFunctionNameTarget.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

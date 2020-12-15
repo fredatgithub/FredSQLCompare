@@ -316,6 +316,38 @@ namespace FredSQLCompare.View
         MessageBox.Show($"Something went wrong when trying to write all Source Stored procedures names to the file: {Properties.Settings.Default.listOfStoredProcedureNameSource}");
       }
 
+      // Get All GetAllFunctionsRequest 
+      sqlQuery = Connexions.GetAllFunctionsRequest();
+      // verify db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionTarget.DatabaseName} on the server: {dbConnexionTarget.ServerName}");
+        return;
+      }
+
+      // write to file target table names. 
+      List<string> listOfFunctionsTarget = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionTarget.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfFunctionNameTarget, listOfFunctionsTarget))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all Target Stored procedures names to the file: {Properties.Settings.Default.listOfStoredProcedureNameTarget}");
+      }
+
+      // get GetAllFunctionsRequest
+      sqlQuery = Connexions.GetAllFunctionsRequest();
+      // verify db connexion
+      if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
+      {
+        MessageBox.Show($"Cannot connect to the database: {dbConnexionSource.DatabaseName} on the server: {dbConnexionSource.ServerName}");
+        return;
+      }
+
+      // write to file source function names. 
+      List<string> listOfFunctionsSource = DALHelper.ExecuteSqlQueryToListOfStrings(sqlQuery, dbConnexionSource.DatabaseName, Dns.GetHostName());
+      if (!Utilities.Utility.WriteTextFile(Properties.Settings.Default.listOfFunctionNameSource, listOfFunctionsSource))
+      {
+        MessageBox.Show($"Something went wrong when trying to write all Source Stored procedures names to the file: {Properties.Settings.Default.listOfStoredProcedureNameSource}");
+      }
+
       // close the win form
       Close();
     }
