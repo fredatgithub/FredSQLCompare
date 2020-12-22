@@ -15,11 +15,6 @@ namespace FredSQLCompare.View
       InitializeComponent();
     }
 
-    private void TabPageDataSources_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void FormDatabaseConnexion_Load(object sender, EventArgs e)
     {
       comboBoxSourceDatabaseSource.Items.Clear();
