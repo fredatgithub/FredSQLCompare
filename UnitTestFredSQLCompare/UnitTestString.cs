@@ -53,5 +53,18 @@ namespace UnitTestFredSQLCompare
       string result = Punctuation.CreateSentence(source, source2, source3);
       Assert.AreEqual(result, expected);
     }
+
+    [TestMethod]
+    public void TestMethod_CreateSentence_several_Characters_2()
+    {
+      string source = "a";
+      string source2 = "long";
+      string source3 = "long";
+      string source4 = "time";
+      string source5 = "ago";
+      string expected = "alonglongtimeago";
+      string result = Punctuation.CreateSentence(source, source2, source3, source4, source5);
+      Assert.AreEqual(result, expected);
+    }
   }
 }
