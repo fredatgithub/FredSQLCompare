@@ -418,8 +418,6 @@ namespace FredSQLCompare.View
       }
 
       Properties.Settings.Default.comboBoxSourceDatabase = oneString;
-
-
       Properties.Settings.Default.Save();
     }
 
