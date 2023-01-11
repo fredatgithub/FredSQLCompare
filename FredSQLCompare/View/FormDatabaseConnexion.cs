@@ -102,7 +102,7 @@ namespace FredSQLCompare.View
       };
 
       RecordParameters();
-      string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      string sqlQuery = ConnectionSqlServer.GetAllDatabaseNamesRequest();
       //string sqlQuery = "select name from sys.databases";
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
       {
@@ -131,7 +131,7 @@ namespace FredSQLCompare.View
       };
 
       RecordParameters();
-      string sqlQuery = Connexions.GetAllDatabaseNamesRequest();
+      string sqlQuery = ConnectionSqlServer.GetAllDatabaseNamesRequest();
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexion.DatabaseName, dbConnexion.ServerName))
       {
         MessageBox.Show($"Cannot connect to the database: {dbConnexion.DatabaseName} on the server: {dbConnexion.ServerName}");
@@ -241,7 +241,7 @@ namespace FredSQLCompare.View
         DatabaseName = comboBoxSourceDatabase.SelectedItem.ToString()
       };
 
-      string sqlQuery = Connexions.GetAllTableNamesRequest();
+      string sqlQuery = ConnectionSqlServer.GetAllTableNamesRequest();
 
       // verify target db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
@@ -264,7 +264,7 @@ namespace FredSQLCompare.View
         DatabaseName = comboBoxTargetDatabase.SelectedItem.ToString()
       };
 
-      sqlQuery = Connexions.GetAllTableNamesRequest();
+      sqlQuery = ConnectionSqlServer.GetAllTableNamesRequest();
       // verify db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
       {
@@ -280,7 +280,7 @@ namespace FredSQLCompare.View
       }
 
       // get GetAllStoredProcedureRequest
-      sqlQuery = Connexions.GetAllStoredProcedureRequest();
+      sqlQuery = ConnectionSqlServer.GetAllStoredProcedureRequest();
       // verify db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
       {
@@ -296,7 +296,7 @@ namespace FredSQLCompare.View
       }
 
       // get GetAllStoredProcedureRequest
-      sqlQuery = Connexions.GetAllStoredProcedureRequest();
+      sqlQuery = ConnectionSqlServer.GetAllStoredProcedureRequest();
       // verify db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
       {
@@ -312,7 +312,7 @@ namespace FredSQLCompare.View
       }
 
       // Get All GetAllFunctionsRequest 
-      sqlQuery = Connexions.GetAllFunctionsRequest();
+      sqlQuery = ConnectionSqlServer.GetAllFunctionsRequest();
       // verify db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionTarget.DatabaseName, dbConnexionTarget.ServerName))
       {
@@ -328,7 +328,7 @@ namespace FredSQLCompare.View
       }
 
       // get GetAllFunctionsRequest
-      sqlQuery = Connexions.GetAllFunctionsRequest();
+      sqlQuery = ConnectionSqlServer.GetAllFunctionsRequest();
       // verify db connexion
       if (!DALHelper.VerifyDatabaseConnexion(sqlQuery, dbConnexionSource.DatabaseName, dbConnexionSource.ServerName))
       {

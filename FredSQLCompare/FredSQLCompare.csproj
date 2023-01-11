@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\Connexions.cs" />
-    <Compile Include="DAL\DALHelper.cs" />
+    <Compile Include="DAL\SQLServer\ConnectionSqlServer.cs" />
+    <Compile Include="DAL\SQLServer\DALHelper.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DatabaseAuthentication.cs" />
-    <Compile Include="Model\ResultLine.cs" />
+    <Compile Include="DAL\SQLServer\DatabaseAuthentication.cs" />
+    <Compile Include="Model\SQLServer\ResultLine.cs" />
     <Compile Include="Model\SqlObjects.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DAL\PostgreSQL\" />
+    <Folder Include="Model\PostgreSQL\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

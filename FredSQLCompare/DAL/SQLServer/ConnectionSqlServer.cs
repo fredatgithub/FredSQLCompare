@@ -1,6 +1,6 @@
 ﻿namespace FredSQLCompare.DAL
 {
-  public static class Connexions
+  public static class ConnectionSqlServer
   {
     public static string GetGeneralConnexionString()
     {
