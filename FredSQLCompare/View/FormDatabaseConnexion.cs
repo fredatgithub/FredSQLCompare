@@ -75,19 +75,16 @@ namespace FredSQLCompare.View
       {
         comboBoxTargetDatabase.Items.Add(item);
       }
-
     }
 
     private void ButtonSourceCreate_Click(object sender, EventArgs e)
     {
       // create a new database
-
     }
 
     private void ButtonTargetCreate_Click(object sender, EventArgs e)
     {
       // create a new database
-
     }
 
     private void ButtonSourceRefresh_Click(object sender, EventArgs e)
