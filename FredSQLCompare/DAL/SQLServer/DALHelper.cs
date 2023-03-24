@@ -245,14 +245,14 @@ namespace FredSQLCompare.DAL
         cmd.Parameters.Add("@Filter", SqlDbType.NVarChar, 255).Value = filter;
         cn.Open();
 
-        using (IDataReader rdr = cmd.ExecuteReader())
+        using (IDataReader reader = cmd.ExecuteReader())
         {
-          while (rdr.Read())
+          while (reader.Read())
           {
-            yield return factory(rdr);
+            yield return factory(reader);
           }
 
-          rdr.Close();
+          reader.Close();
         }
       }
     }
